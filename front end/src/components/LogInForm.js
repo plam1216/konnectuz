@@ -1,14 +1,21 @@
 import React from 'react'
 
 const LogInForm = () => {
-  // handleSubmit()
-  // check if username and password is valid
+  // handleSubmit() {
+    // event.preventDefault()
+    // check if username and password is valid
+  // }
 
   return (
-    <form>
-        <input type="text" name="username" placeholder="Username"></input>
-        <input type="text" name="password" placeholder="Password"></input>
-    </form>
+    <div>
+      <h1>Log In</h1>
+      <form>
+        <label>Username</label>
+        <input type="text" name="username"></input>
+        <label>Password</label>
+        <input type="text" name="password"></input>
+      </form>
+    </div>
   )
 }
 
