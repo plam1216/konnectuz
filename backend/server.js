@@ -5,6 +5,14 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+
+///////////////////
+//MIDDLEWARE
+///////////////////
+app.use(cors()); //prevent cors errors, open acces to all origins
+app.use(morgan('dev')); //logging
+app.use(express.json()); //parse json bodies
+
 /////////////////////
 //DATABASE CONNECTION
 /////////////////////
