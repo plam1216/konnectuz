@@ -1,10 +1,11 @@
 //DEPENDENCIES
 const express = require ('express');
 const app = express();
+require('dotenv').config();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-require('dotenv').config();
-
+const cors = require("cors");
+const morgan = require("morgan");
 
 ///////////////////
 //MIDDLEWARE
