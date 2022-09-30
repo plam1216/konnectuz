@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 // import route and components
 import {Route, Switch} from "react-router-dom"
@@ -18,6 +19,16 @@ function App() {
         </Route>
       </Switch>
     </div>
+=======
+import './style.css';
+import Nav from './components/Nav';
+
+function App() {
+  return (
+    <div className='app'>
+       <Nav />
+       </div>
+>>>>>>> nav bar is functional
   );
 }
 
