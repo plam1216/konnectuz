@@ -13,6 +13,13 @@ mongoose.connect(process.env.DATABASE_URL, {
     useUnifiedTopology: true,
 });
 
+/////////////////////////////////////
+//DATABASE CONNECTION SUCCESS/FAILURE
+/////////////////////////////////////
+const db = mongoose.connection
+db.on('error', (err) => console.log(err + "is mongo not running?"))
+db.on('connected', () => console.log('mongo connected'))
+db.on('disconnected', () => console.log('mongo disconnected'))
 
 ////////////////
 //ROUTES
