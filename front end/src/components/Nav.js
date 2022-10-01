@@ -3,14 +3,16 @@ function Header() {
     return (
         <nav>
             <Link to="/">
-                <div>Home</div>
+                <img src="https://i.imgur.com/QCHhrSB.png" alt="KonnectuZ logo"  className="logo"/>
             </Link>
-            <Link to="/settings">
-                <div>Settings</div>
-            </Link>
-            <Link to="/about">
+            <Link to="/about" className="about">
                 <div>About uZ</div>
             </Link>
+             <span>
+            <Link to="/settings" className="settings">
+                <div>Settings</div>
+            </Link>
+            </span>
         </nav>
     )
 }
