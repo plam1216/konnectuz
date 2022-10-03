@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { Route } from 'react-router'
+import { Route, Switch } from 'react-router-dom'
 import SignUpPage from '../pages/SignUpPage.js'
 
-// ###########################
-// TEST AFTER BACKEND IS SETUP
-// ###########################
+// ###############
+// IGNORE FOR NOW
+// ###############
 
 const SignUpForm = (props) => {
-
-
     const [user, setUser] = useState(null)
 
     // where User data is stored
-    const URL = 'http://localhost:4000'
+    const URL = 'http://localhost:4000/user/'
 
     // grab and display data from MongoDB
     const getUsers = async () => {
@@ -42,12 +40,14 @@ const SignUpForm = (props) => {
 
     return (
         <div>
-            <Route path="/signup">
-                <SignUpPage
-                    user={user}
-                    createUser={createUser}
-                />
-            </Route>
+            <Switch>
+                <Route path="/signup">
+                    <SignUpPage
+                        user={user}
+                        createUser={createUser}
+                    />
+                </Route>
+            </Switch>
         </div >
     )
 }
