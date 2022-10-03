@@ -1,3 +1,7 @@
+const express = require("express");
+const postRouter = express.Router();
+const User = require("../models/user.js");
+
 //no index
 
 //new(probably dont need, could link to user show page or timeline)
@@ -12,3 +16,5 @@
 //edit (can edit post, button on post)
 
 //show (click comment button and reveals comments pertaining to particular post)
+
+module.exports = postRouter;
