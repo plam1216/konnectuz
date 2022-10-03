@@ -1,18 +1,45 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useState } from 'react'
-
-// Page Containing SignUp Form
-// Handles Submission by getting 'createUser' prop passed down from SignUpForm
+import { useHistory } from 'react-router-dom'
+import Header from '../components/Header'
 
 // ###############
 // '/signup' route
 // ###############
 
-// ###########################
-// TEST AFTER BACKEND IS SETUP
-// ###########################
-
 const SignUpPage = (props) => {
+  let history = useHistory()
+  const [users, setUsers] = useState(null)
+
+  // where User data is stored
+  const URL = 'http://localhost:4000/user/'
+
+  // grab and display data from MongoDB
+  const getUsers = async () => {
+      const response = await fetch(URL)
+      const data = await response.json()
+
+      setUsers(data)
+  }
+
+  // create a user using information from sign up form
+  const createUser = async (user) => {
+      // by default fetch GETs, change to POST to create
+      await fetch(URL, {
+          method: "POST",
+          headers: {
+              "Content-Type": "Application/json"
+          },
+          body: JSON.stringify(user)
+      })
+      getUsers()
+  }
+
+  useEffect(() => {
+      getUsers()
+  }, [])
+
+  // sign up form initially set to empty values
   const [signUp, setSignUp] = useState({
     username: "",
     password: "",
@@ -24,28 +51,34 @@ const SignUpPage = (props) => {
   const handleChange = (event) => {
     // spread signUp object
     // reassign [key]:value pairs
-    // console.log(signUp)
     setSignUp({ ...signUp, [event.target.name]: event.target.value })
   }
 
+  // creates the new user, resets state of signUp to empty, redirects to '/'
   const handleSubmit = (event) => {
     // stop page from refreshing
     event.preventDefault()
 
     // createUser method passed down from SignUpForm component
     // props.createUser(signUp)
+    createUser(signUp)
     console.log('created user', signUp)
+    console.log('everybody', users)
+    // console.log('everybody', props.user)
     // reset signUp
     setSignUp({
       username: "",
       password: "",
-      posts: "",
+      posts: [],
       image: ""
     })
+
+    history.push("/")
   }
 
   return (
     <div>
+      <Header/>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>Username</label>
