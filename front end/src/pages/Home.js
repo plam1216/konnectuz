@@ -1,10 +1,16 @@
 import React from "react";
-import { useState } from "react";
-import { useHistory } from "react-router";
+
+
 
 function Home () {
     return (
-        <h1>Hello There</h1>
+        <div className="homePage">
+         <img src="https://i.imgur.com/QCHhrSB.png" alt="login" className="logo home" />
+         <button type="submit" value="Log In"><a href="./login">Log In</a>
+         </button>
+         <button type="submit" value="Sign Up"><a href="./signup">Sign Up</a>
+         </button>
+         </div>
     )
     }
     
