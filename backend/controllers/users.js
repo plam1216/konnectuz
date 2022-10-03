@@ -37,26 +37,22 @@ userRouter.put("/:id", async (req, res) => {
 })
 
 //create (connected to new)
-userRouter.post("/", async (req, res) => {
-    try {
-        //Check for an existing username 
-        await User.findOne({
-            username: req.body.username
-        }, (err, foundUser) => {
-            //If no user is found with that username
-            if (!foundUser) {
-                //overwrite the user password with hashed password, then pass that in to our database
-                req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-                res.json(User.create(req.body, (err, createdUser) => {
-                    res.json(createdUser)
-                }));
-            } else if (foundUser.username === req.body.username) {
-                res.send("That username has already been registered.");
-            };
-        })
-    } catch (error) {
-        res.status(400).json(error)
-    }
+userRouter.post("/", (req, res) => {
+    //Check for an existing username 
+    User.findOne({
+        username: req.body.username
+    }, (err, foundUser) => {
+        //If no user is found with that username
+        if (!foundUser) {
+            //overwrite the user password with hashed password, then pass that in to our database
+            req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+            res.json(User.create(req.body, (err, createdUser) => {
+                res.json(createdUser)
+            }));
+        } else if (foundUser.username === req.body.username) {
+            res.send("That username has already been registered.");
+        };
+    })
 });
 
 
