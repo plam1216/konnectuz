@@ -8,8 +8,13 @@ userRouter.get('/', async (req, res) => {
     try {
         //sets all people objects to a single object
         const usersObject = await User.find({})
-        //maps through each object and targets posts
-        res.json(usersObject.map(user => user.posts))
+        //assign an array to push relevant info to
+        const userArray = [];
+        //maps through each object, creates new object and pushes to userArray
+        usersObject.map(user => {
+            userArray.push({id: user._id, username: user.username, posts: user.posts})
+        })
+        res.json(userArray)
     }
     catch (error) {
         //send error
