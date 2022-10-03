@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const cors = require("cors");
 const morgan = require("morgan");
+const userController = require("./controllers/users.js");
 
 ///////////////////
 //MIDDLEWARE
@@ -13,6 +14,7 @@ const morgan = require("morgan");
 app.use(cors()); //prevent cors errors, open acces to all origins
 app.use(morgan('dev')); //logging
 app.use(express.json()); //parse json bodies
+app.use("/user", userController); //add user controller
 
 /////////////////////
 //DATABASE CONNECTION
