@@ -4,7 +4,16 @@ const User = require("../models/user.js");
 const bcrypt = require("bcrypt");
 
 //index (timeline...everyone's posts)
-
+userRouter.get('/', async (req, res) => {
+    try {
+        //send all people
+        res.json(await User.find({}));
+    }
+    catch (error) {
+        //send error
+        res.status(400).json(error)
+    }
+});
 
 //new (signup page)
 
@@ -15,7 +24,7 @@ const bcrypt = require("bcrypt");
 //create (connected to new)
 userRouter.post("/", (req, res) => {
     //Check for an existing username 
-    res.json(User.findOne({
+    User.findOne({
         username: req.body.username
     }, (err, foundUser) => {
         //If no user is found with that username
@@ -26,12 +35,13 @@ userRouter.post("/", (req, res) => {
         } else if (foundUser.username === req.body.username) {
             res.send("That username address has already been registered.");
         };
-    }))
+    })
 });
 
-module.exports = userRouter;
 
 //edit (possibly settings page, can delete and edit account from here)
 
 //show (each person's individual page, username pfp bio and posts)
 //if user session is not equal to show page you route to, no settings route button appears)
+
+module.exports = userRouter;
