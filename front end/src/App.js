@@ -4,8 +4,10 @@ import {Route, Switch} from "react-router-dom"
 import LogInPage from './pages/LogInPage';
 import SignUpPage from './pages/SignUpPage';
 import Header from './components/Nav';
+
 import Home from './pages/Home';
 import Feed from './pages/Feed'
+
 
 function App() {
   return (
@@ -26,9 +28,11 @@ function App() {
         <Route exact path="/signup">
           <SignUpPage />
         </Route>
+        <Route exact path="/feed">
+          <Feed />
+        </Route>
       </Switch>
     </div>
-
   );
 }
 
