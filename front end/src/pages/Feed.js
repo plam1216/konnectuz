@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from '../components/Header'
 
 // ###############
 // '/feed' route
@@ -69,6 +70,7 @@ const Feed = () => {
 
     return (
         <div>
+            <Header />
             <h1>Feed Page (Show Everyones Posts)</h1>
             {allPosts}
         </div>
