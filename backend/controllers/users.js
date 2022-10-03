@@ -15,7 +15,6 @@ userRouter.get('/', async (req, res) => {
     }
 });
 
-//new (signup page)
 
 //delete (delete account...settings page?)
 userRouter.delete("/:id", async (req, res) => {
@@ -64,6 +63,16 @@ userRouter.post("/", async (req, res) => {
 //edit (possibly settings page, can delete and edit account from here)
 
 //show (each person's individual page, username pfp bio and posts)
+userRouter.get('/:id', async (req, res) => {
+    try {
+        //send all people
+        res.json(await User.findById(req.params.id));
+    }
+    catch (error) {
+        //send error
+        res.status(400).json(error)
+    }
+})
 //if user session is not equal to show page you route to, no settings route button appears)
 
 module.exports = userRouter;
