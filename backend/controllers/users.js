@@ -6,8 +6,10 @@ const bcrypt = require("bcrypt");
 //index (timeline...everyone's posts)
 userRouter.get('/', async (req, res) => {
     try {
-        //send all people
-        res.json(await User.find({}));
+        //sets all people objects to a single object
+        const usersObject = await User.find({})
+        //maps through each object and targets posts
+        res.json(usersObject.map(user => user.posts))
     }
     catch (error) {
         //send error
