@@ -15,6 +15,7 @@ userRouter.get('/', async (req, res) => {
             userArray.push({id: user._id, username: user.username, posts: user.posts})
         })
         res.json(userArray)
+
     }
     catch (error) {
         //send error
