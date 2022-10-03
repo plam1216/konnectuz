@@ -1,10 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-// import Nav from '../components/Nav.js'
-// import SignUpForm from '../components/SignUpForm.js'
 
 // Page Containing SignUp Form
 // Handles Submission by getting 'createUser' prop passed down from SignUpForm
+
+// ###############
+// '/signup' route
+// ###############
+
+// ###########################
+// TEST AFTER BACKEND IS SETUP
+// ###########################
 
 const SignUpPage = (props) => {
   const [signUp, setSignUp] = useState({
@@ -27,8 +33,8 @@ const SignUpPage = (props) => {
     event.preventDefault()
 
     // createUser method passed down from SignUpForm component
-    props.createUser(signUp)
-
+    // props.createUser(signUp)
+    console.log('created user', signUp)
     // reset signUp
     setSignUp({
       username: "",
