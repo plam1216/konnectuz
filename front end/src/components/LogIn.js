@@ -1,44 +1,71 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+
+// ###############
+// '/login' route
+// ###############
 
 // ###########################
 // TEST AFTER BACKEND IS SETUP
 // ###########################
 
-const LogInForm = () => {
+const LogInPage = (props) => {
+  
+  // useHistory is useNavigate in React 6
+  // used to redirect
+  let history = useHistory()
 
-  // where User data is stored
-  // route should be to wherever API data is
-  const URL = 'http://localhost:4000'
+  const [login, setLogin] = useState({
+    username: "",
+    password: ""
+  })
 
-  const [dbUsers, setUser] = useState(null)
-
-  // grab users from MongoDB
-  const getUsers = async () => {
-    const response = await fetch(URL)
-    const data = await response.json()
-    setUser(data)
+  const handleChange = (event) => {
+    setLogin({ ...login, [event.target.name]: event.target.value })
   }
 
-  // every time the page renders, it will getUsers()
-  useEffect(() => {
-    getUsers()
-  }, [])
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // check for user in MongoDB with the same username as which was submitted
+    console.log('inputted login:', login)
+    const validUser = props.dbUsers.find((user) => user.username === login.username)
+    console.log('validUser found: ', validUser)
+    // if username exists in MongoDB check if password exists, else alert username does not exist
+    // if password exists, redirect to 'User' page, else alert password was incorrect
+    if (validUser) {
+      if (validUser.password === login.password) {
+        // redirect to '/user/:id' if valid password
+        history.push("/user/:id")
+      } else {
+        alert('password incorrect')
+      }
+    } else {
+      alert('username does not exist')
+    }
+  }
 
   return (
-      <Route
-        path="/login"
-        render={(rp) => (
-          <LogInPage
-          // pass down users so we can later verify if they exist
-            dbUsers={dbUsers}
-            {...rp}
-          />
-        )}
-      />
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          value={login.username}
+          onChange={handleChange}
+        />
+        <label>Password</label>
+        <input
+          type="text"
+          name="password"
+          value={login.password}
+          onChange={handleChange}
+        />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
   )
-
-
 }
 
-export default LogInForm
+export default LogInPage
