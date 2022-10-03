@@ -69,7 +69,9 @@ userRouter.post("/", (req, res) => {
 userRouter.get('/:id', async (req, res) => {
     try {
         //send all people
-        res.json(await User.findById(req.params.id));
+        User.findById(req.params.id, (err, foundUser) => {
+            res.json({id: foundUser._id, pfp: foundUser.image, username: foundUser.username, posts: foundUser.posts})
+        });
     }
     catch (error) {
         //send error
