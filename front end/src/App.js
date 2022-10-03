@@ -8,8 +8,12 @@ import Header from './components/Nav';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Switch>
+        <Route exact path="/welcome">
+        </Route>
+      <Header />
+      <Route exact path="/feed">
+      </Route>
         <Route exact path="/">
         </Route> 
         <Route exact path="/login">
