@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const cors = require("cors");
 const morgan = require("morgan");
 const userController = require("./controllers/users.js");
+const postController = require("./controllers/posts.js");
 
 ///////////////////
 //MIDDLEWARE
@@ -15,6 +16,7 @@ app.use(cors()); //prevent cors errors, open acces to all origins
 app.use(morgan('dev')); //logging
 app.use(express.json()); //parse json bodies
 app.use("/user", userController); //add user controller
+app.use("/post", postController); //add post controller
 
 /////////////////////
 //DATABASE CONNECTION

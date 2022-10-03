@@ -12,7 +12,13 @@ const User = require("../models/user.js");
 //update(attached to edit route)
 
 //create
-
+postRouter.post("/:id", async (req, res) => {
+    try {
+        res.json(await User.findByIdAndUpdate(req.params.id, {$push: {posts: req.body}} ))
+    } catch (error) {
+        res.send("poopie")
+    }
+})
 //edit (can edit post, button on post)
 
 //show (click comment button and reveals comments pertaining to particular post)
