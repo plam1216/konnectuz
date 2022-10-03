@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function Header() {
     return (
         <nav>
-            <Link to="/">
+            <Link to="/feed">
                 <img src="https://i.imgur.com/QCHhrSB.png" alt="KonnectuZ logo"  className="logo"/>
             </Link>
             <Link to="/about" className="about">
