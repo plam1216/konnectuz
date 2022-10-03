@@ -12,9 +12,10 @@ userRouter.get('/', async (req, res) => {
         const userArray = [];
         //maps through each object, creates new object and pushes to userArray
         usersObject.map(user => {
-            userArray.push({id: user._id, username: user.username, posts: user.posts})
+            userArray.push({id: user._id, username: user.username, posts: user.posts, pfp: user.image})
         })
         res.json(userArray)
+
     }
     catch (error) {
         //send error
@@ -69,7 +70,9 @@ userRouter.post("/", (req, res) => {
 userRouter.get('/:id', async (req, res) => {
     try {
         //send all people
-        res.json(await User.findById(req.params.id));
+        User.findById(req.params.id, (err, foundUser) => {
+            res.json({id: foundUser._id, pfp: foundUser.image, username: foundUser.username, posts: foundUser.posts})
+        });
     }
     catch (error) {
         //send error
