@@ -4,7 +4,16 @@ const User = require("../models/user.js");
 const bcrypt = require("bcrypt");
 
 //index (timeline...everyone's posts)
-
+userRouter.get('/', async (req, res) => {
+    try {
+        //send all people
+        res.json(await User.find({}));
+    }
+    catch (error) {
+        //send error
+        res.status(400).json(error)
+    }
+});
 
 //new (signup page)
 
