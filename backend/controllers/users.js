@@ -9,13 +9,18 @@ const bcrypt = require("bcrypt");
 //new (signup page)
 
 //delete (delete account...settings page?)
+userRouter.delete("/:id", (req, res) => {
+    User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
+        res.send(deletedUser)
+    })
+})
 
 //update (connected to edit update's user's profile info)
 
 //create (connected to new)
 userRouter.post("/", (req, res) => {
     //Check for an existing username 
-    res.json(User.findOne({
+    User.findOne({
         username: req.body.username
     }, (err, foundUser) => {
         //If no user is found with that username
@@ -24,9 +29,9 @@ userRouter.post("/", (req, res) => {
             req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
             res.json(User.create(req.body));
         } else if (foundUser.username === req.body.username) {
-            res.send("That username address has already been registered.");
+            res.send("That username has already been registered.");
         };
-    }))
+    })
 });
 
 module.exports = userRouter;
