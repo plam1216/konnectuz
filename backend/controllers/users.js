@@ -12,7 +12,7 @@ userRouter.get('/', async (req, res) => {
         const userArray = [];
         //maps through each object, creates new object and pushes to userArray
         usersObject.map(user => {
-            userArray.push({id: user._id, username: user.username, posts: user.posts})
+            userArray.push({id: user._id, username: user.username, posts: user.posts, pfp: user.image})
         })
         res.json(userArray)
 
