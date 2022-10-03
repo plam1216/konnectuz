@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 
 //index (timeline...everyone's posts)
 
+
 //new (signup page)
 
 //delete (delete account...settings page?)
@@ -14,7 +15,7 @@ const bcrypt = require("bcrypt");
 //create (connected to new)
 userRouter.post("/", (req, res) => {
     //Check for an existing username 
-    User.findOne({
+    res.json(User.findOne({
         username: req.body.username
     }, (err, foundUser) => {
         //If no user is found with that username
@@ -25,8 +26,10 @@ userRouter.post("/", (req, res) => {
         } else if (foundUser.username === req.body.username) {
             res.send("That username address has already been registered.");
         };
-    });
+    }))
 });
+
+module.exports = userRouter;
 
 //edit (possibly settings page, can delete and edit account from here)
 
