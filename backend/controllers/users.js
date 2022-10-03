@@ -18,13 +18,24 @@ userRouter.get('/', async (req, res) => {
 //new (signup page)
 
 //delete (delete account...settings page?)
-userRouter.delete("/:id", (req, res) => {
-    User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
-        res.json(deletedUser)
-    })
+userRouter.delete("/:id", async (req, res) => {
+    try {
+        res.json(await User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
+            res.json(deletedUser)
+        }))
+    } catch (error) {
+        res.status(400).json(error)
+    }
 })
 
 //update (connected to edit update's user's profile info)
+userRouter.put("/:id", async (req, res) => {
+    try {
+        res.json( await User.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
 
 //create (connected to new)
 userRouter.post("/", (req, res) => {
