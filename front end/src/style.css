@@ -5,7 +5,7 @@
 
 }
 
-.body {
+html, .body {
     height: 100%;
 }
 
@@ -79,4 +79,36 @@ a:hover {
 .form-label {
     margin: 10px;
     font-size: 1.25em;
+}
+
+.create-post {
+    text-align: center;
+}
+
+.post {
+    border: 2px solid black;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background-color: var(--aqua-background-color);
+    border: 2px solid yellow;
+    height: 40px;
+    padding: 10px;
+}
+
+.user-info > h5 {
+    margin: 0;
+}
+
+.pfp {
+    width: 30px;
+    border-radius: 15px;
+}
+
+.post-content {
+    text-align: center;
 }

@@ -2,18 +2,14 @@ import React from 'react'
 import Header from '../components/Header'
 import { useEffect, useState } from 'react';
 
-// ###############
+/////////////////////////
 // '/feed' route
-// ###############
-
-// ###########################
-// CURRENTLY USING TEST DATA
-// TEST AFTER BACKEND IS SETUP
-// ###########################
+// shows all users' posts
+/////////////////////////
 
 const Feed = () => {
 
-    const [ user, setUser ] = useState(null);
+    const [user, setUser] = useState(null);
 
     const URL = "http://localhost:4000/user/";
     const getUser = async () => {
@@ -23,7 +19,7 @@ const Feed = () => {
         console.log(data)
     }
 
-    useEffect(() => {getUser()}, []);
+    useEffect(() => { getUser() }, []);
 
     // //  MOCK DATA
     // let users = [
@@ -62,37 +58,56 @@ const Feed = () => {
     let loaded = () => {
         let allPosts = user.map((u) => {
             return (
-                <div className="post" key={u._id}>
-                    <h3>{u.username}</h3>
-                    {u.posts.map((post) => {
-                        return (
-                            <div className="postContent" key={post.content}>
-                                {post.content} <br />
-                                {post.image}
-                                {post.comments.map((comment) => {
-                                    return (
-                                        <div className="comment" key={comment.content}>
-                                            {comment.content}
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })}
+                <div className="row justify-content-md-center">
+                    <div className="post col col-lg-6" style={{ padding: 0 }} key={u._id}>
+                        <div className="user-info">
+                            <img className="pfp" src={u.pfp} alt={u.username} />
+                            <h5>{u.username}</h5>
+                            <div></div>
+                        </div>
+                        {u.posts.map((post) => {
+                            return (
+                                <div className="post-content" key={post.content}>
+                                    <p id="post-text" style={{ margin: 0 }}>
+                                        {post.content}
+                                    </p>
+                                    <img src={post.image} alt={post.content} />
+                                    {post.comments.map((comment) => {
+                                        return (
+                                            <div className="comment" key={comment.content}>
+                                                {comment.content}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             )
         })
         return (
-            <div>
-            <Header />
-            <h1>Feed Page (Show Everyones Posts)</h1>
-            {allPosts}
-        </div>
+            <main id="feed-main">
+                <Header />
+                <div className="create-post">
+                    <form>
+                        <label>say something</label>
+                        <textarea style={{display: 'block', margin: 'auto'}}></textarea>
+                    </form>
+                </div>
+                {allPosts}
+            </main>
         )
     }
     let loading = () => {
         return (
-            <h1>Loading...</h1>
+            <div>
+                <Header />
+                <div className="create-post">
+                    create post here
+                </div>
+                <h1>Loading...</h1>
+            </div>
         )
     }
     return user ? loaded() : loading();
