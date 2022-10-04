@@ -89,35 +89,50 @@ const SignUpPage = (props) => {
   }
 
   return (
-    <div>
+    <div id="signUpPage">
       <Header />
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          value={signUp.username}
-          name="username"
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={signUp.password}
-          name="password"
-          onChange={handleChange}
-        />
-        <label>Profile Picture (URL)</label>
-        <input
-          type="text"
-          value={signUp.image}
-          name="image"
-          onChange={handleChange}
-        />
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <div class="row justify-content-md-center">
+            <div className="col col-lg-5">
+              <div>
+                <label>Username</label>
+                <input
+                  type="text"
+                  value={signUp.username}
+                  name="username"
+                  onChange={handleChange}
+                  className="form-control"
+                />
+              </div>
+              <div>
+                <label>Password</label>
+                <input
+                  type="password"
+                  value={signUp.password}
+                  name="password"
+                  onChange={handleChange}
+                  className="form-control"
+                />
+              </div>
+              <div>
+                <label>Profile Picture (URL)</label>
+                <input
+                  type="text"
+                  value={signUp.image}
+                  name="image"
+                  onChange={handleChange}
+                  className="form-control"
+                />
+              </div>
+              <input type="submit" value="Create Profile"></input>
+            </div>
 
-        <input type="submit" value="Create Profile"></input>
-      </form>
-    </div>
+          </div>
+        </form>
+      </div >
+    </div >
   )
 }
 
