@@ -10,7 +10,7 @@ const User = require("../models/user.js");
 //if user session id is equal to post user id
 
 //update(attached to edit route)
-postRouter.put("/:id", async (req, res) => {
+postRouter.put("/:userid", async (req, res) => {
     try {
         //works so far but doesnt target the post itself
         res.json(await User.findByIdAndUpdate(req.params.id, 
@@ -26,7 +26,7 @@ postRouter.put("/:id", async (req, res) => {
 })
 
 //create
-postRouter.post("/:id", async (req, res) => {
+postRouter.post("/:userid", async (req, res) => {
     try {
         res.json(await User.findByIdAndUpdate(req.params.id, {$push: {posts: req.body}} ))
     } catch (error) {
@@ -37,5 +37,14 @@ postRouter.post("/:id", async (req, res) => {
 //edit (can edit post, button on post)
 
 //show (click comment button and reveals comments pertaining to particular post)
+postRouter.get('/:userid/:postid', async (req, res) => {
+    try {
+        await User.findById(req.params.userid, (err, foundUser) => {
+            res.json(foundUser.posts.id(req.params.postid))
+        })
+    } catch (error) {
+        
+    }
+})
 
 module.exports = postRouter;
