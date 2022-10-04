@@ -8,17 +8,30 @@ const User = require("../models/user.js");
 
 //delete(button can be attached to bottom of post)
 //if user session id is equal to post user id
+postRouter.delete("/:userid/:postid", async (req, res) => {
+    try {
+        //Finds user by id from route
+        await User.findById(req.params.userid, (err, foundUser) => {
+            res.json(foundUser.posts.pull(req.params.postid))
+            //Saves the changes we made after pulling the post from the user
+            foundUser.save();
+        })
+    } catch (error) {
+    }
+})
 
 //update(attached to edit route)
+
 postRouter.put("/:userid", async (req, res) => {
     try {
-        //works so far but doesnt target the post itself
-        res.json(await User.findByIdAndUpdate(req.params.id, 
+        //Finds user by id from route
+        res.json(await User.findByIdAndUpdate(req.params.userid,
             {
                 //sets user.posts value to an object containing all of the keys and values in req.body
-                $set: 
-                {posts: {...req.body}}
-            }, {new: true} 
+                $set:
+                    { posts: { ...req.body } }
+            }
+            , { new: true }
         ))
     } catch (error) {
         res.send("poopie")
@@ -28,7 +41,7 @@ postRouter.put("/:userid", async (req, res) => {
 //create
 postRouter.post("/:userid", async (req, res) => {
     try {
-        res.json(await User.findByIdAndUpdate(req.params.id, {$push: {posts: req.body}} ))
+        res.json(await User.findByIdAndUpdate(req.params.userid, { $push: { posts: req.body } }))
     } catch (error) {
         res.send("poopie")
     }
@@ -43,7 +56,7 @@ postRouter.get('/:userid/:postid', async (req, res) => {
             res.json(foundUser.posts.id(req.params.postid))
         })
     } catch (error) {
-        
+
     }
 })
 
