@@ -50,13 +50,13 @@ postRouter.post("/:userid", async (req, res) => {
 //edit (can edit post, button on post)
 
 //show (click comment button and reveals comments pertaining to particular post)
-postRouter.get('/:userid/:postid', async (req, res) => {
+postRouter.get('/:userid/:postid', (req, res) => {
     try {
-        await User.findById(req.params.userid, (err, foundUser) => {
+         User.findById(req.params.userid, (err, foundUser) => {
             res.json(foundUser.posts.id(req.params.postid))
         })
     } catch (error) {
-
+        throw(error)
     }
 })
 
