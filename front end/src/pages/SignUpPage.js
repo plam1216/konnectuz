@@ -89,35 +89,52 @@ const SignUpPage = (props) => {
   }
 
   return (
-    <div>
+    <main>
       <Header />
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          value={signUp.username}
-          name="username"
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={signUp.password}
-          name="password"
-          onChange={handleChange}
-        />
-        <label>Profile Picture (URL)</label>
-        <input
-          type="text"
-          value={signUp.image}
-          name="image"
-          onChange={handleChange}
-        />
+      <div id="sign-up-content">
+        <h1>Sign Up</h1>
+        <div className="container">
+          <form onSubmit={handleSubmit}>
+            <div className="row justify-content-md-center">
+              <div className="col col-lg-4">
+                <div>
+                  <label className="form-label">Username</label>
+                  <input
+                    type="text"
+                    value={signUp.username}
+                    name="username"
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <label className="form-label">Password</label>
+                  <input
+                    type="password"
+                    value={signUp.password}
+                    name="password"
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <label className="form-label">Profile Picture (URL)</label>
+                  <input
+                    type="text"
+                    value={signUp.image}
+                    name="image"
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <input id="sign-up-btn" type="submit" value="Sign Up"></input>
+              </div>
 
-        <input type="submit" value="Create Profile"></input>
-      </form>
-    </div>
+            </div>
+          </form>
+        </div >
+      </div>
+    </main >
   )
 }
 
