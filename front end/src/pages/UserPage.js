@@ -15,7 +15,7 @@ const UserPage = () => {
 
     const [ user, setUser ] = useState(null);
 
-    const URL = "http://localhost:4000/user/633c758a546c9ecd181ba181/";
+    const URL = `http://localhost:4000/user/633c758a546c9ecd181ba181/`;
     const getUser = async () => {
         const repsonse = await fetch(URL);
         const data = await repsonse.json();
@@ -29,7 +29,8 @@ const UserPage = () => {
     let loaded = () => {
         let allPosts = 
                 <div className="post" key={user._id}>
-                    <h3>{user.username}</h3>
+                  <img>{user.image}</img>
+                    <h1>{user.username}</h1>
                     {user.posts.map((post) => {
                         return (
                             <div className="postContent" key={post.content}>
@@ -50,7 +51,7 @@ const UserPage = () => {
         return (
             <div>
             <Header />
-            <h1>User Feed Page</h1>
+            {/* <h1>${user.username}/h1> */}
             {allPosts}
         </div>
         )

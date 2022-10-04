@@ -7,6 +7,7 @@ import SignUpPage from './pages/SignUpPage';
 import Home from './pages/Home';
 import Feed from './pages/Feed'
 import UserPage from './pages/UserPage'
+import About from './pages/About.Js';
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route exact path="/user">
           <UserPage />
+        </Route>
+        <Route exact path='/about'>
+          <About />
         </Route>
       </Switch>
     </div>
