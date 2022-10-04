@@ -3,11 +3,11 @@ const commentRouter = express.Router();
 const User = require("../models/user.js");
 
 //delete(button can be attached to bottom of post)
-commentRouter.delete("/:userid/:postid", (req, res) => {
+commentRouter.delete("/:userid/:postid/:commentid", (req, res) => {
     //Finds user by id from route
     try {
         User.findById(req.params.userid, (err, foundUser) => {
-            res.json(foundUser.posts.id(req.params.postid).remove())
+            res.json(foundUser.posts.id(req.params.postid).comments.id(req.params.commentid).remove())
             foundUser.save()
         })
     } catch (error) {
@@ -16,9 +16,13 @@ commentRouter.delete("/:userid/:postid", (req, res) => {
 })
 
 //create
-commentRouter.post("/:userid", async (req, res) => {
+commentRouter.post("/:userid/:postid", (req, res) => {
     try {
-        res.json(await User.findByIdAndUpdate(req.params.userid, { $push: { posts: req.body } }))
+        User.findById(req.params.userid, (err, foundUser) => {
+            foundUser.posts.id(req.params.postid).comments.push(req.body);
+            res.json(foundUser.posts.id(req.params.postid).comments);
+            foundUser.save();
+        })
     } catch (error) {
         res.send("poopie")
     }
