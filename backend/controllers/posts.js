@@ -3,7 +3,6 @@ const postRouter = express.Router();
 const User = require("../models/user.js");
 
 //delete(button can be attached to bottom of post)
-//if user session id is equal to post user id
 postRouter.delete("/:userid/:postid", (req, res) => {
     //Finds user by id from route
     try {
