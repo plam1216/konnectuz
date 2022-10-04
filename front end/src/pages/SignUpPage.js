@@ -118,7 +118,8 @@ const SignUpPage = (props) => {
                   />
                 </div>
                 <div>
-                  <label className="form-label">Profile Picture (URL)</label>
+                  <label className="form-label" style={{marginBottom: 0}}>Profile Picture</label>
+                  <p id="pfp-example" style={{ marginTop: 0, fontSize: '0.75rem' }}>(ex. https://imgur.com/FV8FVeW.jpg)</p>
                   <input
                     type="text"
                     value={signUp.image}
