@@ -13,47 +13,49 @@ const Feed = () => {
 
     const URL = "http://localhost:4000/user/";
     const getUser = async () => {
-        const repsonse = await fetch(URL);
-        const data = await repsonse.json();
+        const response = await fetch(URL);
+        const data = await response.json();
         setUser(data);
-        console.log(data)
+    }
+    const [post, setPost] = useState({
+        content: "",
+        image: "",
+        likes: [],
+        comments: []
+    })
+
+    const postURL = "http://localhost:4000/post/633c758a546c9ecd181ba181"
+    const createPost = async (post) => {
+        await fetch(postURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify(post)
+        })
     }
 
     useEffect(() => { getUser() }, []);
 
-    // //  MOCK DATA
-    // let users = [
-    //     {
-    //         _id: '1',
-    //         username: 'user1',
-    //         password: '1',
-    //         posts: [{
-    //             content: 'con1',
-    //             image: 'conimg',
-    //             comments: [{
-    //                 content: 'u1 comment 2'
-    //             }, {
-    //                 content: 'u1 comment 2'
-    //             }]
-    //         }],
-    //         image: '1'
-    //     },
-    //     {
-    //         _id: '2',
-    //         username: 'user2',
-    //         password: '2',
-    //         posts: [{
-    //             content: 'con2',
-    //             image: 'con2img',
-    //             comments: [{
-    //                 content: 'u2 first comment'
-    //             }, {
-    //                 content: 'u2 second comment'
-    //             }]
-    //         }],
-    //         image: '2'
-    //     },
-    // ]
+    const handleChange = (event) => {
+        console.log('list of users', [...user])
+        setPost({ ...post, [event.target.name]: event.target.value })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        createPost(post)
+
+        setPost({
+            content: "",
+            image: "",
+            likes: [],
+            comments: []
+        })
+
+        getUser()
+        console.log('list of users after submit', [...user])
+    }
 
     let loaded = () => {
         let allPosts = user.map((u) => {
@@ -89,12 +91,40 @@ const Feed = () => {
         return (
             <main id="feed-main">
                 <Header />
+                {/* <div className="container"> */}
+                <h4 style={{ textAlign: 'center' }}>say something</h4>
                 <div className="create-post">
-                    <form>
-                        <label>say something</label>
-                        <textarea style={{display: 'block', margin: 'auto'}}></textarea>
+                    <form onSubmit={handleSubmit}>
+                        <div className="row justify-content-md-center">
+                            <div className="col col-lg-4">
+                                <div>
+                                    <label className="form-label">text</label>
+                                    <input
+                                        type="text"
+                                        name="content"
+                                        value={post.content}
+                                        onChange={handleChange}
+                                    />
+                                    <label className="form-label">image</label>
+                                    <p id="pfp-example" style={{ marginTop: 0, fontSize: '0.75rem' }}>
+                                        (ex. https://imgur.com/FV8FVeW.jpg)
+                                    </p>
+                                    <input
+                                        type="text"
+                                        name="image"
+                                        value={post.image}
+                                        onChange={handleChange}
+                                    />
+                                    <input
+                                        type="submit"
+                                        value="Submit"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
+                {/* </div> */}
                 {allPosts}
             </main>
         )
