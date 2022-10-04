@@ -21,7 +21,7 @@ postRouter.delete("/:userid/:postid", async (req, res) => {
 })
 
 //update(attached to edit route)
-//works so far but doesnt target the post itself
+
 postRouter.put("/:userid", async (req, res) => {
     try {
         //Finds user by id from route
