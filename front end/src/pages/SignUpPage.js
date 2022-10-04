@@ -89,50 +89,52 @@ const SignUpPage = (props) => {
   }
 
   return (
-    <div id="signUpPage">
+    <main>
       <Header />
-      <h1>Sign Up</h1>
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <div class="row justify-content-md-center">
-            <div className="col col-lg-5">
-              <div>
-                <label>Username</label>
-                <input
-                  type="text"
-                  value={signUp.username}
-                  name="username"
-                  onChange={handleChange}
-                  className="form-control"
-                />
+      <div id="sign-up-content">
+        <h1>Sign Up</h1>
+        <div className="container">
+          <form onSubmit={handleSubmit}>
+            <div className="row justify-content-md-center">
+              <div className="col col-lg-4">
+                <div>
+                  <label className="form-label">Username</label>
+                  <input
+                    type="text"
+                    value={signUp.username}
+                    name="username"
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <label className="form-label">Password</label>
+                  <input
+                    type="password"
+                    value={signUp.password}
+                    name="password"
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <label className="form-label">Profile Picture (URL)</label>
+                  <input
+                    type="text"
+                    value={signUp.image}
+                    name="image"
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <input id="sign-up-btn" type="submit" value="Sign Up"></input>
               </div>
-              <div>
-                <label>Password</label>
-                <input
-                  type="password"
-                  value={signUp.password}
-                  name="password"
-                  onChange={handleChange}
-                  className="form-control"
-                />
-              </div>
-              <div>
-                <label>Profile Picture (URL)</label>
-                <input
-                  type="text"
-                  value={signUp.image}
-                  name="image"
-                  onChange={handleChange}
-                  className="form-control"
-                />
-              </div>
-              <input type="submit" value="Create Profile"></input>
-            </div>
 
-          </div>
-        </form>
-      </div >
-    </div >
+            </div>
+          </form>
+        </div >
+      </div>
+    </main >
   )
 }
 

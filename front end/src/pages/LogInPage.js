@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Header from '../components/Header.js'
 
@@ -62,27 +62,41 @@ const LogInPage = (props) => {
   }
 
   return (
-    <div>
+    <main>
       <Header />
-      <h1>LogIn Page</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          name="username"
-          value={login.username}
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          type="text"
-          name="password"
-          value={login.password}
-          onChange={handleChange}
-        />
-        <input type="submit" value="Login" />
-      </form>
-    </div>
+      <div id="login-content">
+        <h1>Login Page</h1>
+        <div className="container">
+          <form onSubmit={handleSubmit}>
+            <div className="row justify-content-md-center">
+              <div className="col col-lg-4">
+                <div>
+                  <label className="form-label">Username</label>
+                  <input
+                    type="text"
+                    name="username"
+                    value={login.username}
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <div>
+                  <label className="form-label">Password</label>
+                  <input
+                    type="text"
+                    name="password"
+                    value={login.password}
+                    onChange={handleChange}
+                    className="form-control"
+                  />
+                </div>
+                <input id="login-btn" type="submit" value="Login" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
   )
 }
 
