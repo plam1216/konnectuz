@@ -4,7 +4,7 @@ const commentSchema = mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
     content: String,
 }, { 
-    timestamp: true
+    timestamps: true
 });
 
 const postSchema = mongoose.Schema({
@@ -13,7 +13,7 @@ const postSchema = mongoose.Schema({
     comments: [commentSchema],
     likes: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
 }, { 
-    timestamp: true
+    timestamps: true
 });
 
 const userSchema = mongoose.Schema({
@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema({
     //Image string needs to be a URL to show
     image: String, 
 }, {
-    timestamp: true
+    timestamps: true
 })
 
 const User = mongoose.model("User", userSchema);
