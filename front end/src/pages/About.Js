@@ -1,17 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
 
-function about() {
+function About() {
     return (
-           
-           <div className="about"> 
-              <Header />
-        
-   
-            <h1>Hello</h1>
-           
+        <div className="about">
+            <Header />
+
         </div>
     )
 }
-
-export default About;
+export default About
