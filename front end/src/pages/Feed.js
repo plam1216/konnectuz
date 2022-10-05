@@ -29,18 +29,19 @@ const Feed = () => {
                 <div className="row justify-content-md-center">
                     <div className="post col col-lg-6" style={{ padding: 0 }} key={u._id}>
 
-                        {/* user's 'pfp' and 'username' */}
-                        <div className="user-info">
-                            <img className="pfp" src={u.pfp} alt={u.username} />
-                            <h5>{u.username}</h5>
-
-                            {/* empty div for styling purposes */}
-                            <div></div>
-                        </div>
 
                         {/* Map through individual user's 'posts' array */}
                         {u.posts.map((post) => {
                             return (
+                            <div className='ind-post'>
+                                {/* user's 'pfp' and 'username' */}
+                                <div className="user-info">
+                                    <img className="pfp" src={u.pfp} alt={u.username} />
+                                    <h5>{u.username}</h5>
+
+                                    {/* empty div for styling purposes */}
+                                    <div></div>
+                                </div>
                                 <div className="post-content" key={post.content}>
                                     <p id="post-text" style={{ margin: 0 }}>
                                         {post.content}
@@ -56,6 +57,7 @@ const Feed = () => {
                                         )
                                     })}
                                 </div>
+                            </div>
                             )
                         })}
                     </div>
