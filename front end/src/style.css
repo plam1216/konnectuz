@@ -26,24 +26,10 @@ a {
 nav {
     background-color: var(--pink-background-color);
     display: flex;
-
-}
-
-.settings,
-.about {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 19vh;
-    font-size: 40px;
-}
-
-.about {
-    padding-left: 550px;
-}
-
-.settings {
-    padding-left: 600px;
+    justify-content: space-around;
+    font-size: 200%;
+    align-content: center;
+    line-height: 100px;
 }
 
 a:hover {
