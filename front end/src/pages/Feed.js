@@ -37,7 +37,7 @@ const Feed = () => {
                                     <Link to={`/user/${u.id}`}>
                                         {/* user's 'pfp' and 'username' */}
                                         <div className="user-info">
-                                            <img className="pfp" src={u.pfp} />
+                                            <img className="pfp" src={u.pfp} alt="" />
                                             <h5 style={{ fontWeight: 700 }}>{u.username}</h5>
                                             <div></div>
                                         </div>
@@ -46,11 +46,11 @@ const Feed = () => {
                                         <p id="post-text" style={{ margin: 0 }}>
                                             {post.content}
                                         </p>
-                                        <img id="post-img" src={post.image} />
+                                        <img id="post-img" src={post.image} alt="" />
 
                                         <div id="comments">
                                             <Link to={`/post/${u.id}/${post._id}`}>
-                                                <h5 id="comment-header" style={{fontWeight: 700}}>COMMENTS</h5>
+                                                <h5 id="comment-header" style={{ fontWeight: 700 }}>COMMENTS</h5>
                                                 {/* map through each post's 'comments' array */}
                                                 {post.comments.map((comment) => {
                                                     return (
@@ -64,7 +64,8 @@ const Feed = () => {
                                                             </div>
                                                         </div>
                                                     )
-                                                })}
+                                                }
+                                                )}
                                             </Link>
                                         </div>
                                     </div>

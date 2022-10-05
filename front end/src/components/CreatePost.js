@@ -53,7 +53,7 @@ const CreatePost = ({ getUser }) => {
                 <div className="row justify-content-md-center">
                     <div className="col col-lg-5 create-post-form">
                         <div>
-                            <h3 style={{fontWeight: 700}}>What's New?</h3>
+                            <h3 style={{ fontWeight: 700 }}>What's New?</h3>
 
                             <div>
 
