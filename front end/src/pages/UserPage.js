@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
-import { useEffect, useState } from 'react';
 import CreatePost from '../components/CreatePost';
+import { useEffect, useState } from 'react';
 
 // ###############
 // '/feed' route
@@ -52,6 +52,7 @@ const UserPage = () => {
         return (
             <div>
             <Header />
+            <CreatePost />
             {/* <h1>${user.username}/h1> */}
             {allPosts}
         </div>
@@ -59,7 +60,11 @@ const UserPage = () => {
     }
     let loading = () => {
         return (
+            <div>
             <h1>Loading...</h1>
+            <Header />
+            <CreatePost />
+            </div>
         )
     }
     return user ? loaded() : loading();
