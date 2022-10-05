@@ -8,10 +8,27 @@ import Home from './pages/Home';
 import Feed from './pages/Feed'
 import UserPage from './pages/UserPage'
 import Settings from './pages/Settings';
+import { useEffect, useState } from 'react';
+import Settings from './pages/Settings';
+
 
 
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  // get all user data from MongoDB
+  const URL = "http://localhost:4000/user/";
+  const getUser = async () => {
+      const response = await fetch(URL);
+      const data = await response.json();
+      setUser(data);
+  }
+
+  useEffect(() => { getUser() }, []);
+
+  console.log(user)
+
   return (
     <div className="App">
       <Switch>
@@ -27,9 +44,9 @@ function App() {
         <Route exact path="/signup">
           <SignUpPage />
         </Route>
-        <Route exact path="/user">
-          <UserPage />
-        </Route>
+        <Route 
+          path="/user/:userid" 
+          render={(routerProps) => <UserPage {...routerProps} users={user}/>}/>
         <Route exact path='/about'>
           <About />
         </Route>
