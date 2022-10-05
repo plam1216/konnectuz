@@ -1,3 +1,4 @@
+
 const express = require("express");
 const bcrypt = require("bcrypt");
 const sessionsRouter = express.Router();
@@ -13,7 +14,7 @@ sessionsRouter.delete('/', (req, res) => {
     });
 });
 
-//U
+//C
 //login 
 sessionsRouter.post("/", (req, res) => {
     //Check for an existing user 
@@ -37,5 +38,6 @@ sessionsRouter.post("/", (req, res) => {
         };
     });
 });
+
 
 module.exports = sessionsRouter;
