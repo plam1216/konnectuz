@@ -32,12 +32,16 @@ nav {
     line-height: 100px;
 }
 
+.nav-link:hover {
+    color: var(--aqua-background-color)
+}
+
 a:hover {
     transform: scale(1);
     opacity: 1;
     filter: blur(0);
     text-decoration: none;
-    color: var(--aqua-background-color);
+    color: var(--pink-background-color);
 }
 
 #sign-up-content {
