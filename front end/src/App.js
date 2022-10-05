@@ -7,6 +7,7 @@ import About from './pages/About.Js';
 import Home from './pages/Home';
 import Feed from './pages/Feed'
 import UserPage from './pages/UserPage'
+import Settings from './pages/Settings';
 
 
 
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route exact path='/about'>
           <About />
+        </Route>
+        <Route exact path='/settings'>
+          <Settings />
         </Route>
       </Switch>
     </div>
