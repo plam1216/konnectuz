@@ -128,7 +128,7 @@ const SignUpPage = (props) => {
                     className="form-control"
                   />
                 </div>
-                <input id="sign-up-btn" type="submit" value="Sign Up"></input>
+                <input className="submit-btn" type="submit" value="Sign Up"></input>
               </div>
 
             </div>
