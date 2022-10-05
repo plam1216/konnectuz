@@ -34,32 +34,34 @@ const Feed = () => {
                         {u.posts.map((post) => {
                             return (
                                 <div className='ind-post'>
-                                <Link to={`/user/${u.id}`}>
-                                {/* user's 'pfp' and 'username' */}
-                                <div className="user-info">
-                                    <img className="pfp" src={u.pfp} alt={u.username} />
-                                    <h5>{u.username}</h5>
+                                    <Link to={`/user/${u.id}`}>
+                                        {/* user's 'pfp' and 'username' */}
+                                        <div className="user-info">
+                                            <img className="pfp" src={u.pfp} alt={u.username} />
+                                            <h5>{u.username}</h5>
 
-                                    {/* delete; not functional */}
-                                    <div><i className="bi bi-x-circle"></i></div>
+                                            <div></div>
+                                        </div>
+                                    </Link>
+                                    <div className="post-content" key={post.content}>
+                                        <p id="post-text" style={{ margin: 0 }}>
+                                            {post.content}
+                                        </p>
+                                        <img id="post-img" src={post.image}/>
+                                        
+                                        <div id="comments">
+                                            <h5>COMMENTS</h5>
+                                        {/* map through each post's 'comments' array */}
+                                            {post.comments.map((comment) => {
+                                                return (
+                                                    <div className="comment" key={comment.content}>
+                                                        {comment.content}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
                                 </div>
-                                </Link>
-                                <div className="post-content" key={post.content}>
-                                    <p id="post-text" style={{ margin: 0 }}>
-                                        {post.content}
-                                    </p>
-                                    <img id="post-img" src={post.image} alt={post.content} />
-                                    
-                                    {/* map through each post's 'comments' array */}
-                                    {post.comments.map((comment) => {
-                                        return (
-                                            <div className="comment" key={comment.content}>
-                                                {comment.content}
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            </div>
                             )
                         })}
                     </div>
@@ -70,7 +72,7 @@ const Feed = () => {
         return (
             <main id="feed-main">
                 <Header />
-                <CreatePost getUser={getUser}/>
+                <CreatePost getUser={getUser} />
                 {allPosts}
             </main>
         )
@@ -81,7 +83,7 @@ const Feed = () => {
         return (
             <div>
                 <Header />
-                <CreatePost getUser={getUser}/>
+                <CreatePost getUser={getUser} />
             </div>
         )
     }
