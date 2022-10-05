@@ -71,8 +71,9 @@ a:hover {
     text-align: center;
 }
 
-.post {
+.ind-post {
     border: 2px solid black;
+    margin: 20px;
 }
 
 .user-info {
@@ -97,4 +98,8 @@ a:hover {
 
 .post-content {
     text-align: center;
+}
+
+.create-labels {
+    margin: 0;
 }
