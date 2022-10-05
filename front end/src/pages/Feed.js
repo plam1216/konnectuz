@@ -37,8 +37,8 @@ const Feed = () => {
                                     <Link to={`/user/${u.id}`}>
                                         {/* user's 'pfp' and 'username' */}
                                         <div className="user-info">
-                                            <img className="pfp" src={u.pfp} alt={u.username} />
-                                            <h5>{u.username}</h5>
+                                            <img className="pfp" src={u.pfp} />
+                                            <h5 style={{ fontWeight: 700 }}>{u.username}</h5>
                                             <div></div>
                                         </div>
                                     </Link>
@@ -50,12 +50,18 @@ const Feed = () => {
 
                                         <div id="comments">
                                             <Link to={`/post/${u.id}/${post._id}`}>
-                                                <h5 id="comment-header">COMMENTS</h5>
+                                                <h5 id="comment-header" style={{fontWeight: 700}}>COMMENTS</h5>
                                                 {/* map through each post's 'comments' array */}
                                                 {post.comments.map((comment) => {
                                                     return (
-                                                        <div className="comment" key={comment.content}>
-                                                            {comment.content}
+                                                        <div id="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+
+                                                                {comment.createdAt}
+                                                            </div>
                                                         </div>
                                                     )
                                                 })}

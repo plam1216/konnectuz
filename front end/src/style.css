@@ -56,9 +56,11 @@ a:hover {
     font-family: var(--main-font);
     margin-top: 100px;
 }
+
 .form-label {
     margin: 10px;
     font-size: 1.25em;
+    font-weight: 700;
 }
 
 .create-post {
@@ -106,12 +108,12 @@ a:hover {
     padding: 20px;
 }
 
-.create-labels {
+.create-post-labels {
     margin: 0;
 }
 
 #post-img {
-    height: auto;
+    height: 250px;
     max-width: 80%;
 }
 
@@ -127,6 +129,7 @@ a:hover {
     padding-bottom: 10px;
 }
 
-.comment {
+#comment-container{
     display: flex;
+    justify-content:space-around;
 }
