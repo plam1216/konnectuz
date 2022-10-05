@@ -92,7 +92,8 @@ a:hover {
 
 .post-content {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .form-control {
@@ -114,7 +115,18 @@ a:hover {
     max-width: 80%;
 }
 
-#comments { 
-    border-top: 2px solid black;
+#comment-header {
     background-color: rgba(73, 69, 69, 0.1);
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin: 0;
+}
+
+#comments { 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.comment {
+    display: flex;
 }

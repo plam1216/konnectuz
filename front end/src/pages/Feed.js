@@ -28,7 +28,7 @@ const Feed = () => {
         let allPosts = user.map((u) => {
             return (
                 <div className="row justify-content-md-center">
-                    <div className="col col-lg-6" style={{ padding: 0 }} key={u._id}>
+                    <div className="col col-lg-7" style={{ padding: 0 }} key={u._id}>
 
                         {/* Map through individual user's 'posts' array */}
                         {u.posts.map((post) => {
@@ -39,7 +39,6 @@ const Feed = () => {
                                         <div className="user-info">
                                             <img className="pfp" src={u.pfp} alt={u.username} />
                                             <h5>{u.username}</h5>
-
                                             <div></div>
                                         </div>
                                     </Link>
@@ -47,18 +46,20 @@ const Feed = () => {
                                         <p id="post-text" style={{ margin: 0 }}>
                                             {post.content}
                                         </p>
-                                        <img id="post-img" src={post.image}/>
-                                        
+                                        <img id="post-img" src={post.image} />
+
                                         <div id="comments">
-                                            <h5>COMMENTS</h5>
-                                        {/* map through each post's 'comments' array */}
-                                            {post.comments.map((comment) => {
-                                                return (
-                                                    <div className="comment" key={comment.content}>
-                                                        {comment.content}
-                                                    </div>
-                                                )
-                                            })}
+                                            <Link to={`/post/${u.id}/${post._id}`}>
+                                                <h5 id="comment-header">COMMENTS</h5>
+                                                {/* map through each post's 'comments' array */}
+                                                {post.comments.map((comment) => {
+                                                    return (
+                                                        <div className="comment" key={comment.content}>
+                                                            {comment.content}
+                                                        </div>
+                                                    )
+                                                })}
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

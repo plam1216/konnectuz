@@ -62,9 +62,9 @@ const CreatePost = ({ getUser }) => {
         < div className="create-post">
             <form onSubmit={handleSubmit}>
                 <div className="row justify-content-md-center">
-                    <div className="col col-lg-5 create-post-form">
+                    <div className="col col-lg-5 create-post-form" style={{padding: 0}}>
                             <div>
-                                <h3>What's New?</h3>
+                                <h3 style={{margin: 0, backgroundColor: 'var(--aqua-background-color)'}}>What's New?</h3>
                                 <label className="form-label create-labels">Message</label>
                                 <input
                                     type="text"
@@ -75,7 +75,6 @@ const CreatePost = ({ getUser }) => {
                                     onChange={handleChange}
                                     className="form-control"
                                     style={{margin: 0}}
-
                                 />
                             </div>
                             <div>
