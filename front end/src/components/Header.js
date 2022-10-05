@@ -5,6 +5,9 @@ function Header() {
             <Link to="/feed">
                 <img src="https://i.imgur.com/QCHhrSB.png" alt="KonnectuZ logo"  className="logo"/>
             </Link>
+            <Link to="/user/">
+                <div>Your Page</div>
+            </Link>
             <Link to="/about" className="about">
                 <div>About uZ</div>
             </Link>
