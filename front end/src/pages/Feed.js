@@ -27,7 +27,7 @@ const Feed = () => {
         let allPosts = user.map((u) => {
             return (
                 <div className="row justify-content-md-center">
-                    <div className="post col col-lg-6" style={{ padding: 0 }} key={u._id}>
+                    <div className="col col-lg-6" style={{ padding: 0 }} key={u._id}>
 
                         {/* Map through individual user's 'posts' array */}
                         {u.posts.map((post) => {
@@ -39,13 +39,13 @@ const Feed = () => {
                                     <h5>{u.username}</h5>
 
                                     {/* delete; not functional */}
-                                    <div><i class="bi bi-x-circle"></i></div>
+                                    <div><i className="bi bi-x-circle"></i></div>
                                 </div>
                                 <div className="post-content" key={post.content}>
                                     <p id="post-text" style={{ margin: 0 }}>
                                         {post.content}
                                     </p>
-                                    <img src={post.image} alt={post.content} />
+                                    <img id="post-img" src={post.image} alt={post.content} />
                                     
                                     {/* map through each post's 'comments' array */}
                                     {post.comments.map((comment) => {
