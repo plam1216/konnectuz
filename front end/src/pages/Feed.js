@@ -30,11 +30,14 @@ const Feed = () => {
                 <div className="row justify-content-md-center">
                     <div className="col col-lg-7" style={{ padding: 0 }} key={u._id}>
 
-                        {/* Map through individual user's 'posts' array */}
+                        {/* map through individual user's 'posts' array */}
                         {u.posts.map((post) => {
                             return (
                                 <div className='ind-post'>
+
+                                    {/* clicking on profile picture or username links to user's page */}
                                     <Link to={`/user/${u.id}`}>
+
                                         {/* user's 'pfp' and 'username' */}
                                         <div className="user-info">
                                             <img className="pfp" src={u.pfp} alt="" />
@@ -42,6 +45,8 @@ const Feed = () => {
                                             <div></div>
                                         </div>
                                     </Link>
+
+                                    {/* whatever user inputted to the form is shown here */}
                                     <div className="post-content" key={post.content}>
                                         <p id="post-text" style={{ margin: 0 }}>
                                             {post.content}
@@ -49,6 +54,7 @@ const Feed = () => {
                                         <img id="post-img" src={post.image} alt="" />
 
                                         <div id="comments">
+                                        {/* clicking on comments leads to page of comments of that post */}
                                             <Link to={`/post/${u.id}/${post._id}`}>
                                                 <h5 id="comment-header" style={{ fontWeight: 700 }}>COMMENTS</h5>
                                                 {/* map through each post's 'comments' array */}
