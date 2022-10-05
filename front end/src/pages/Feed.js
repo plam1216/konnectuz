@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom';
 /////////////////////////
 
 const Feed = () => {
+    let current = JSON.parse(localStorage.getItem("currentUser"))
+    console.log(current)
+
     const [user, setUser] = useState(null);
 
     // get all user data from MongoDB

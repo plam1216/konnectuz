@@ -6,9 +6,11 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const cors = require("cors");
 const morgan = require("morgan");
+const session = require("express-session");
+const sessionsController = require("./controllers/sessions.js");
 const userController = require("./controllers/users.js");
 const postController = require("./controllers/posts.js");
-const commentsController = require("./controllers/comments")
+const commentsController = require("./controllers/comments");
 
 ///////////////////
 //MIDDLEWARE
@@ -16,9 +18,15 @@ const commentsController = require("./controllers/comments")
 app.use(cors()); //prevent cors errors, open acces to all origins
 app.use(morgan('dev')); //logging
 app.use(express.json()); //parse json bodies
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+}));
 app.use("/user", userController); //add user controller
 app.use("/post", postController); //add post controller
 app.use("/comments", commentsController); //add comments controller
+app.use("/sessions", sessionsController); //add sessions controller
 
 /////////////////////
 //DATABASE CONNECTION
