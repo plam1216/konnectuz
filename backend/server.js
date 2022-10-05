@@ -6,11 +6,13 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const cors = require("cors");
 const morgan = require("morgan");
-const session = require('express-session')
+
+const session = require("express-session");
+const sessionsController = require("./controllers/sessions.js");
 const userController = require("./controllers/users.js");
 const postController = require("./controllers/posts.js");
 const commentsController = require("./controllers/comments");
-const sessionsController = require('./controllers/sessions');
+
 
 ///////////////////
 //MIDDLEWARE
@@ -22,7 +24,7 @@ app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
-}))
+}));
 app.use("/user", userController); //add user controller
 app.use("/post", postController); //add post controller
 app.use("/comments", commentsController); //add comments controller
