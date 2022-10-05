@@ -12,11 +12,11 @@ import { useEffect, useState } from 'react';
 // TEST AFTER BACKEND IS SETUP
 // ###########################
 
-const UserPage = () => {
+const UserPage = (props) => {
 
     const [ user, setUser ] = useState(null);
 
-    const URL = `http://localhost:4000/user/633c758a546c9ecd181ba181/`;
+    const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
     const getUser = async () => {
         const repsonse = await fetch(URL);
         const data = await repsonse.json();
@@ -29,7 +29,7 @@ const UserPage = () => {
 
     let loaded = () => {
         let allPosts = 
-                <div className="post" key={user._id}>
+                <div className="post" key={user.id}>
                   <img>{user.image}</img>
                     <h1>{user.username}</h1>
                     {user.posts.map((post) => {
