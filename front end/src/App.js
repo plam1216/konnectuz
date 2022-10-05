@@ -9,10 +9,6 @@ import Feed from './pages/Feed'
 import UserPage from './pages/UserPage'
 import Settings from './pages/Settings';
 import { useEffect, useState } from 'react';
-import Settings from './pages/Settings';
-
-
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,8 +22,6 @@ function App() {
   }
 
   useEffect(() => { getUser() }, []);
-
-  console.log(user)
 
   return (
     <div className="App">

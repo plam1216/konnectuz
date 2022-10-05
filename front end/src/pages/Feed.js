@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import CreatePost from '../components/CreatePost';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 /////////////////////////
 // '/feed' route
@@ -32,7 +33,8 @@ const Feed = () => {
                         {/* Map through individual user's 'posts' array */}
                         {u.posts.map((post) => {
                             return (
-                            <div className='ind-post'>
+                                <div className='ind-post'>
+                                <Link to={`/user/${u.id}`}>
                                 {/* user's 'pfp' and 'username' */}
                                 <div className="user-info">
                                     <img className="pfp" src={u.pfp} alt={u.username} />
@@ -41,6 +43,7 @@ const Feed = () => {
                                     {/* delete; not functional */}
                                     <div><i className="bi bi-x-circle"></i></div>
                                 </div>
+                                </Link>
                                 <div className="post-content" key={post.content}>
                                     <p id="post-text" style={{ margin: 0 }}>
                                         {post.content}
