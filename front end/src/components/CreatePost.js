@@ -5,7 +5,7 @@ import { useState } from 'react';
 // CREATE a post
 ////////////////
 
-const CreatePost = ({getUser}) => {
+const CreatePost = ({ getUser }) => {
     const [post, setPost] = useState({
         content: "",
         image: "",
@@ -64,26 +64,34 @@ const CreatePost = ({getUser}) => {
                 <div className="row justify-content-md-center">
                     <div className="col col-lg-4">
                         <div>
-                            <label className="form-label">text</label>
-                            <input
-                                type="text"
-                                name="content"
-                                placeholder="Share Your Thoughts"
-                                maxLength={15}
-                                value={post.content}
-                                onChange={handleChange}
-                            />
-                            <label className="form-label">image</label>
-                            <p id="pfp-example" style={{ marginTop: 0, fontSize: '0.75rem' }}>
-                                (ex. https://imgur.com/FV8FVeW.jpg)
-                            </p>
-                            <input
-                                type="text"
-                                name="image"
-                                placeholder="Share an Image"
-                                value={post.image}
-                                onChange={handleChange}
-                            />
+                            <div>
+                                <h4>What's New?</h4>
+                                <label className="form-label create-labels">Text</label>
+                                <input
+                                    type="text"
+                                    name="content"
+                                    placeholder="Share Your Thoughts"
+                                    maxLength={15}
+                                    value={post.content}
+                                    onChange={handleChange}
+                                    className="form-control"
+
+                                />
+                            </div>
+                            <div>
+                                <label className="form-label create-labels">Image</label>
+                                <p id="pfp-example" style={{ marginTop: 0, fontSize: '0.75rem' }}>
+                                    (ex. https://imgur.com/FV8FVeW.jpg)
+                                </p>
+                                <input
+                                    type="text"
+                                    name="image"
+                                    placeholder="Share an Image"
+                                    value={post.image}
+                                    onChange={handleChange}
+                                    className="form-control"
+                                />
+                            </div>
                             <input
                                 type="submit"
                                 value="Submit"
