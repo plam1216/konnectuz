@@ -90,7 +90,7 @@ const LogInPage = (props) => {
                     className="form-control"
                   />
                 </div>
-                <input id="login-btn" type="submit" value="Login" />
+                <input className="submit-btn" type="submit" value="Login" />
               </div>
             </div>
           </form>

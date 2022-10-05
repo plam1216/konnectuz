@@ -59,14 +59,13 @@ const CreatePost = ({ getUser }) => {
 
     // form to CREATE post
     return (
-        < div className="create-post" >
+        < div className="create-post">
             <form onSubmit={handleSubmit}>
                 <div className="row justify-content-md-center">
-                    <div className="col col-lg-4">
-                        <div>
+                    <div className="col col-lg-5 create-post-form">
                             <div>
-                                <h4>What's New?</h4>
-                                <label className="form-label create-labels">Text</label>
+                                <h3>What's New?</h3>
+                                <label className="form-label create-labels">Message</label>
                                 <input
                                     type="text"
                                     name="content"
@@ -75,6 +74,7 @@ const CreatePost = ({ getUser }) => {
                                     value={post.content}
                                     onChange={handleChange}
                                     className="form-control"
+                                    style={{margin: 0}}
 
                                 />
                             </div>
@@ -90,13 +90,14 @@ const CreatePost = ({ getUser }) => {
                                     value={post.image}
                                     onChange={handleChange}
                                     className="form-control"
+                                    style={{margin: 0}}
                                 />
                             </div>
                             <input
+                                className="submit-btn"
                                 type="submit"
                                 value="Submit"
                             />
-                        </div>
                     </div>
                 </div>
             </form>
