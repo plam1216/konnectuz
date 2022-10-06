@@ -6,7 +6,7 @@ function Settings(props) {
     let current = JSON.parse(localStorage.getItem("currentUser"))
     let history = useHistory();
 
-    const URL = `http://localhost:4000/user/${current._id}`
+    const URL = `https://konnectuzbackend.herokuapp.com/user/${current._id}`
     async function deleteUser() {
         await fetch(URL, { method: 'DELETE' })
     }

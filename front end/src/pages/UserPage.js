@@ -32,7 +32,7 @@ const UserPage = (props) => {
     const [user, setUser] = useState(null);
 
     // fetch data for current logged in user
-    const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
+    const URL = `https://konnectuzbackend.herokuapp.com/user/${props.match.params.userid}/`;
     async function getUser() {
         const response = await fetch(URL);
         const data = await response.json();

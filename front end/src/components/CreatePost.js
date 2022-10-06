@@ -20,7 +20,7 @@ const CreatePost = ({ getUser }) => {
     // it a user is logged in
     if (current) {
         // get data for a User's post
-        const postURL = `http://localhost:4000/post/${current._id}`
+        const postURL = `https://konnectuzbackend.herokuapp.com/post/${current._id}`
 
         const createPost = async (post) => {
             await fetch(postURL, {
