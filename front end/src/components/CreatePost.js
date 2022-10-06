@@ -7,14 +7,15 @@ import { useState } from 'react';
 
 const CreatePost = ({ getUser }) => {
     let current = JSON.parse(localStorage.getItem("currentUser"))
-
+    
     const [post, setPost] = useState({
         content: "",
         image: "",
         likes: [],
         comments: []
     })
-
+    
+    if (current) {
     // get data for a User's post
     const postURL = `http://localhost:4000/post/${current._id}`
 
@@ -97,6 +98,7 @@ const CreatePost = ({ getUser }) => {
             </form >
         </div >
     )
+}
 }
 
 export default CreatePost
