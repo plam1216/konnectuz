@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 // '/feed' route
 // SHOW all users' posts
 /////////////////////////
-
 const Feed = () => {
 
     const [user, setUser] = useState(null);
@@ -66,17 +65,55 @@ const Feed = () => {
 
                                             {/* map through each post's 'comments' array */}
                                             {post.comments.map((comment) => {
-                                                return (
-                                                    <div className="comment-container">
-                                                        <div className="comment" key={comment.content}>
-                                                            {comment.content}
+                                                //date in ms at which comment was made
+                                                let commentDate = new Date(comment.createdAt)
+                                                //date is now date is seconds
+                                                commentDate /= 1000
+                                                //current time in seconds
+                                                let currentDate = Date.now() / 1000
+                                                //time in minutes since post
+                                                const timeSincePost = Math.floor((currentDate - commentDate) / 60)
+                                                //var that holds time since post after condition
+                                                let dateSinceComment
+                                                if (timeSincePost > 60) {
+                                                    dateSinceComment = `${Math.floor(timeSincePost / 60)} hrs`
+                                                    return (
+                                                        <div className="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+                                                                {dateSinceComment}
+                                                            </div>
                                                         </div>
-                                                        <div className="createdAt">
-
-                                                            {comment.createdAt}
+                                                    )
+                                                }
+                                                if (timeSincePost > 1 && timeSincePost <= 60) {
+                                                    dateSinceComment = `${timeSincePost} minutes`
+                                                    return (
+                                                        <div className="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+                                                                {dateSinceComment}
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )
+                                                    )
+                                                }
+                                                if (timeSincePost < 1) {
+                                                    dateSinceComment = `<1 min`
+                                                    return (
+                                                        <div className="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+                                                                {dateSinceComment}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
                                             }
                                             )}
                                         </div>
