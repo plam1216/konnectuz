@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
 
 /////////////////////////
@@ -21,7 +21,7 @@ const CommentsPage = (props) => {
     // }
 
     // useEffect(() => { getPost() }, []);
- 
+
 
 
     // this is working, creates a comment for the respective post
@@ -43,6 +43,7 @@ const CommentsPage = (props) => {
 
     const handleChange = (event) => {
         setComment({ ...comment, [event.target.name]: event.target.value })
+        console.log(props)
     }
 
     const handleSubmit = (event) => {
@@ -57,19 +58,25 @@ const CommentsPage = (props) => {
         <div>
             <Header />
             {/* {post.content } */}
-            <h4>Comment</h4>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="content"
-                    value={comment.content}
-                    onChange={handleChange}
-                />
-                <input
-                    type="submit"
-                    value="Submit"
-                />
-            </form>
+            < div className="create-comment">
+                <form onSubmit={handleSubmit}>
+                    <div className="row justify-content-md-center">
+                        <div className="col col-lg-5 create-post-form">
+                            <h4>Comment on this post: {props.match.params.postid}</h4>
+                            <input
+                                type="text"
+                                name="content"
+                                value={comment.content}
+                                onChange={handleChange}
+                            />
+                            <input
+                                type="submit"
+                                value="Submit"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
