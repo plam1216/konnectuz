@@ -56,13 +56,12 @@ const CreatePost = ({ getUser }) => {
                             <h3 style={{ fontWeight: 700 }}>What's New?</h3>
 
                             <div>
-
                                 <label className="form-label create-post-labels">Message</label>
                                 <input
                                     type="text"
                                     name="content"
-                                    placeholder="Share Your Thoughts"
-                                    maxLength={15}
+                                    placeholder="What's Happening?"
+                                    maxLength={50}
                                     value={post.content}
                                     onChange={handleChange}
                                     className="form-control"
@@ -71,14 +70,14 @@ const CreatePost = ({ getUser }) => {
                             </div>
                         </div>
                         <div>
-                            <label className="form-label create-post-labels">Image</label>
-                            <p id="pfp-example" style={{ marginBottom: 10, fontSize: '0.75rem' }}>
+                            <label className="form-label create-post-labels" style={{marginTop: 5}}>Image</label>
+                            {/* <p id="pfp-example" style={{ marginBottom: 10, fontSize: '0.75rem' }}>
                                 (ex. https://imgur.com/FV8FVeW.jpg)
-                            </p>
+                            </p> */}
                             <input
                                 type="text"
                                 name="image"
-                                placeholder="Share an Image"
+                                placeholder="https://imgur.com/FV8FVeW.jpg)"
                                 value={post.image}
                                 onChange={handleChange}
                                 className="form-control"
@@ -88,7 +87,8 @@ const CreatePost = ({ getUser }) => {
                         <input
                             className="submit-btn"
                             type="submit"
-                            value="Submit"
+                            value="Konnect!"
+                            style={{marginTop: 15, marginBottom: 0}}
                         />
                     </div>
                 </div>
