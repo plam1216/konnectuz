@@ -15,7 +15,7 @@ function Header() {
         return (
             <nav className="navbar" style={{ padding: 0 }}>
                 <div className="container-fluid" style={{ display: "flex" }}>
-                    <Link to="/feed" className="nav-link navbar-brand">
+                    <Link to="/" className="nav-link navbar-brand">
                         <img src="https://i.imgur.com/QCHhrSB.png" alt="KonnectuZ logo" className="logo" />
                     </Link>
                     <ul className="ms-auto text-link">
@@ -37,7 +37,7 @@ function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/feed" className ="logout nav-link navbar-brand" onClick={ handleLogout }>
+                            <Link to="/" className ="logout nav-link navbar-brand" onClick={ handleLogout }>
                                 <div>Log Out</div>
                             </Link>
                         </li>
@@ -49,7 +49,7 @@ function Header() {
         return (
             <nav className="navbar" style={{ padding: 0 }}>
                 <div className="container-fluid" style={{ display: "flex" }}>
-                    <Link to="/feed" className="nav-link">
+                    <Link to="/" className="nav-link">
                         <img src="https://i.imgur.com/QCHhrSB.png" alt="KonnectuZ logo" className="logo" />
                     </Link>
                     <ul className="ms-auto text-link">

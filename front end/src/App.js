@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom"
 import LogInPage from './pages/LogInPage';
 import SignUpPage from './pages/SignUpPage';
 import About from './pages/AboutUz';
-import Home from './pages/Home';
 import Feed from './pages/Feed'
 import UserPage from './pages/UserPage'
 import CommentsPage from './pages/CommentsPage';
@@ -28,11 +27,11 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/feed">
           <Feed />
         </Route>
+        {/* <Route exact path="/feed">
+          <Feed /> */}
+        {/* </Route> */}
         <Route exact path="/login">
           <LogInPage />
         </Route>
