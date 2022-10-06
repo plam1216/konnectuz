@@ -3,7 +3,7 @@ import './style.css';
 import { Route, Switch } from "react-router-dom"
 import LogInPage from './pages/LogInPage';
 import SignUpPage from './pages/SignUpPage';
-import About from './pages/About.Js';
+import About from './pages/About.js';
 import Home from './pages/Home';
 import Feed from './pages/Feed'
 import UserPage from './pages/UserPage'
