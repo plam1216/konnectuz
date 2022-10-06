@@ -128,7 +128,6 @@ const UserPage = (props) => {
                                     </div>
 
                                 </div>
-                            </div>
                         )
                     })}
                 </div>
