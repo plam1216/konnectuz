@@ -6,7 +6,7 @@ function Settings(props) {
     let current = JSON.parse(localStorage.getItem("currentUser"))
     let history = useHistory();
 
-    const URL = `http://localhost:4000/user/`
+    const URL = `http://localhost:4000/user/${current._id}`
     async function deleteUser() {
         await fetch(URL,{method: 'DELETE'})
     }
@@ -16,11 +16,11 @@ function Settings(props) {
         deleteUser();
         history.push("/")
     }
-
     return (
         <div className="settings">
             <Header />
             <button onClick={handleSubmit}>Delete Account</button>
+            
           
         </div>
     )
