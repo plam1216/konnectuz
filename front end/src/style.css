@@ -5,7 +5,8 @@
 
 }
 
-html, .body {
+html,
+body {
     height: 100%;
 }
 
@@ -60,9 +61,11 @@ a:hover {
     font-family: var(--main-font);
     margin-top: 100px;
 }
+
 .form-label {
     margin: 10px;
     font-size: 1.25em;
+    font-weight: 700;
 }
 
 .create-post {
@@ -84,7 +87,7 @@ a:hover {
     padding: 10px;
 }
 
-.user-info > h5 {
+.user-info>h5 {
     margin: 0;
 }
 
@@ -97,7 +100,11 @@ a:hover {
 .post-content {
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 10px;
+}
+
+#post-text {
+    text-align: start;
+    padding: 10px 50px 10px 50px;
 }
 
 .form-control {
@@ -110,27 +117,31 @@ a:hover {
     padding: 20px;
 }
 
-.create-labels {
+.create-post-labels {
     margin: 0;
 }
 
 #post-img {
-    height: auto;
+    height: 250px;
     max-width: 80%;
 }
 
 #comment-header {
     background-color: rgba(73, 69, 69, 0.1);
     border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     margin: 0;
 }
 
-#comments { 
+#comment-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#comments {
     padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .comment {
-    display: flex;
+    padding-bottom: 10px;
 }
