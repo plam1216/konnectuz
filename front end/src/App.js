@@ -44,9 +44,10 @@ function App() {
           render={(routerProps) => <UserPage {...routerProps} users={user} />}
         />
         <Route
-          path="/post/:userid/:commentid">
-          <CommentsPage />
-        </Route>
+          path="/post/:userid/:postid"
+          render={(routerProps) => <CommentsPage {...routerProps} />}
+        />
+        {/* </Route> */}
         <Route exact path='/about'>
           <About />
         </Route>
@@ -54,7 +55,7 @@ function App() {
           <Settings />
         </Route>
       </Switch>
-    </div>
+    </div >
   );
 }
 

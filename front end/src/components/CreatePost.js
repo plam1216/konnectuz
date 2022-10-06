@@ -58,7 +58,7 @@ const CreatePost = ({ getUser }) => {
                         <div className="col col-lg-5 create-post-form">
                             <div>
                                 <div className="create-post-header">
-                                    <img className="logged-in-pfp" src={current.image} />
+                                    <img className="logged-in-pfp" src={current.image} alt=""/>
                                     <h3 style={{ fontWeight: 700 }}>What's New?</h3>
                                     <div></div>
                                 </div>
