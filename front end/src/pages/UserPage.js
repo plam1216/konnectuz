@@ -50,28 +50,28 @@ const UserPage = (props) => {
                                         {post.content}
                                     </p>
                                     <img className="post-img" src={post.image} alt="" />
+                                </div>
 
-                                    <div id="comments">
-                                        <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
-                                            <Link to={`/post/${user.id}/${post._id}`}>
+                                <div id="comments">
+                                    <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
+                                        <Link to={`/post/${user.id}/${post._id}`}>
                                             COMMENTS
-                                            </Link>
-                                        </h5>
+                                        </Link>
+                                    </h5>
 
-                                        {post.comments.map((comment) => {
-                                            return (
-                                                <div className="comment-container">
-                                                    <div className="comment" key={comment.content}>
-                                                        {comment.content}
-                                                    </div>
-                                                    <div className="createdAt">
-
-                                                        {comment.createdAt}
-                                                    </div>
+                                    {post.comments.map((comment) => {
+                                        return (
+                                            <div className="comment-container">
+                                                <div className="comment" key={comment.content}>
+                                                    {comment.content}
                                                 </div>
-                                            )
-                                        })}
-                                    </div>
+                                                <div className="createdAt">
+
+                                                    {comment.createdAt}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         )

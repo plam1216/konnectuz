@@ -48,39 +48,40 @@ const Feed = () => {
                                     </Link>
 
                                     {/* whatever user inputted to the form is shown here */}
-                                    <div key={post.content}>
-                                        <div className="post-content">
-                                            <p className="post-text" style={{ margin: 0 }}>
-                                                {post.content}
-                                            </p>
-                                            <img className="post-img" src={post.image} alt="" />
-                                        </div>
-
-                                        <div id="comments">
-                                            {/* clicking on comments leads to page of comments of that post */}
-                                            <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
-                                                <Link to={`/post/${u.id}/${post._id}`}>
-                                                    COMMENTS
-                                                </Link>
-                                            </h5>
-
-                                            {/* map through each post's 'comments' array */}
-                                            {post.comments.map((comment) => {
-                                                return (
-                                                    <div className="comment-container">
-                                                        <div className="comment" key={comment.content}>
-                                                            {comment.content}
-                                                        </div>
-                                                        <div className="createdAt">
-
-                                                            {comment.createdAt}
-                                                        </div>
-                                                    </div>
-                                                )
-                                            }
-                                            )}
-                                        </div>
+                                    {/* <div key={post.content}> */}
+                                    <div className="post-content">
+                                        <p className="post-text" style={{ margin: 0 }}>
+                                            {post.content}
+                                        </p>
+                                        <img className="post-img" src={post.image} alt="" />
                                     </div>
+
+                                    <div id="comments">
+                                        {/* clicking on comments leads to page of comments of that post */}
+                                        <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
+                                            <Link to={`/post/${u.id}/${post._id}`}>
+                                                COMMENTS
+                                            </Link>
+                                        </h5>
+
+                                        {/* map through each post's 'comments' array */}
+                                        {post.comments.map((comment) => {
+                                            return (
+                                                <div className="comment-container">
+                                                    <div className="comment" key={comment.content}>
+                                                        {comment.content}
+                                                    </div>
+                                                    <div className="createdAt">
+
+                                                        {comment.createdAt}
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        )}
+                                    </div>
+
+                                    {/* </div> */}
                                 </div>
                             )
                         })}
