@@ -10,7 +10,10 @@ function Settings(props) {
     async function deleteUser() {
         await fetch(URL,{method: 'DELETE'})
     }
-    
+        function confirmDelete() {
+                if(window.confirm('are you sure you want to delete your account')) {handleSubmit()}
+        }
+
     const handleSubmit = () => {
         localStorage.clear();
         deleteUser();
@@ -19,7 +22,7 @@ function Settings(props) {
     return (
         <div className="settings">
             <Header />
-            <button onClick={handleSubmit}>Delete Account</button>
+            <button onClick={confirmDelete}>Delete Account</button>
             
           
         </div>
