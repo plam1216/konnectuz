@@ -28,7 +28,7 @@ const CommentsPage = (props) => {
     })
     
     // this is the post that we want to add the comment to
-    const commentURL = `http://localhost:4000/comments/${props.match.params.userid}/${props.match.params.postid}`
+    const commentURL = `https://konnectuzbackend.herokuapp.com/comments/${props.match.params.userid}/${props.match.params.postid}`
     
     const createComment = async (comment) => {
         await fetch(commentURL, {
