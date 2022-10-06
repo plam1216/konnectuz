@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 /////////////////////////////////////////
 
 const UserPage = (props) => {
-    let editAndDelete = ""
+    let editAndDelete = "";
+    let createPostDiv = "";
     // check to see if the person's id who logged in matches the 
     if (localStorage.getItem("currentUser")) {
         let currentUser = JSON.parse(localStorage.getItem("currentUser"))
@@ -24,6 +25,7 @@ const UserPage = (props) => {
                         <i class="bi bi-trash"></i>
                     </div>
                 </div>
+                createPostDiv = <CreatePost getUser={getUser} />
             console.log("YOU ARE THE USER!!!!!")
         }
     }
@@ -32,7 +34,7 @@ const UserPage = (props) => {
 
     // fetch data for current logged in user
     const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
-    const getUser = async () => {
+    async function getUser() {
         const response = await fetch(URL);
         const data = await response.json();
         // both data and user is showing in console
@@ -94,7 +96,7 @@ const UserPage = (props) => {
         return (
             <div>
                 <Header />
-                <CreatePost getUser={getUser} />
+                {createPostDiv}
                 {allPosts}
             </div>
         )
@@ -104,7 +106,7 @@ const UserPage = (props) => {
             <div>
                 <h1>Loading...</h1>
                 <Header />
-                <CreatePost getUser={getUser} />
+                {createPostDiv}
             </div>
         )
     }
