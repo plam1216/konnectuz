@@ -14,7 +14,7 @@ function Settings(props) {
     const handleSubmit = () => {
         localStorage.clear();
         deleteUser();
-        history.push("/")
+        history.push("/feed")
     }
     return (
         <div className="settings">
