@@ -25,8 +25,11 @@ function Settings(props) {
             < div className="delete-account">
                 <div className="row justify-content-md-center">
                     <div className="col col-lg-5 create-post-form">
-                        <h2>Delete Account id: {current._id}</h2>
-                        <button onClick={confirmDelete}>Delete</button>
+                        <h2 style={{marginBottom: 20, borderBottom: '2px solid black'}}> Delete Account</h2>
+                        <img className="pfp" src={current.image} alt=""/>
+                        <p style={{display: "inline-block", fontSize: "1.2rem"}}><strong>id: {current._id}</strong></p> 
+                        <br/>
+                        <button onClick={confirmDelete} style={{textAlign: 'center'}}>Delete</button>
                     </div>
                 </div>
             </div>

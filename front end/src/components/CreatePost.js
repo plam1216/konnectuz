@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 
-////////////////
+////////////////////////////////////
 // CREATE a post
-////////////////
+// logged in user can create a post
+////////////////////////////////////
 
 const CreatePost = ({ getUser }) => {
+    // current user
     let current = JSON.parse(localStorage.getItem("currentUser"))
 
     const [post, setPost] = useState({
@@ -15,6 +17,7 @@ const CreatePost = ({ getUser }) => {
         comments: []
     })
 
+    // it a user is logged in
     if (current) {
         // get data for a User's post
         const postURL = `http://localhost:4000/post/${current._id}`
@@ -78,13 +81,13 @@ const CreatePost = ({ getUser }) => {
                             </div>
                             <div>
                                 <label className="form-label create-post-labels" style={{ marginTop: 5 }}>Image</label>
-                                {/* <p id="pfp-example" style={{ marginBottom: 10, fontSize: '0.75rem' }}>
+                                <p id="pfp-example" style={{ marginBottom: 10, fontSize: '0.75rem' }}>
                                 (ex. https://imgur.com/FV8FVeW.jpg)
-                            </p> */}
+                            </p>
                                 <input
                                     type="text"
                                     name="image"
-                                    placeholder="https://imgur.com/FV8FVeW.jpg)"
+                                    // placeholder="https://imgur.com/FV8FVeW.jpg)"
                                     value={post.image}
                                     onChange={handleChange}
                                     className="form-control"
