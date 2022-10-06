@@ -6,6 +6,8 @@ import { useState } from 'react';
 ////////////////
 
 const CreatePost = ({ getUser }) => {
+    let current = JSON.parse(localStorage.getItem("currentUser"))
+
     const [post, setPost] = useState({
         content: "",
         image: "",
