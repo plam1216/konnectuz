@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
 
-/////////////////////////
+/////////////////////////////////////////
 // '/comments/:userid/:postid' route
-// CREATE comment on users' post
-/////////////////////////
+// CREATE comment for the respective post
+/////////////////////////////////////////
 
 const CommentsPage = (props) => {
     // const [post, setPost] = useState(null);
@@ -23,14 +23,13 @@ const CommentsPage = (props) => {
     // useEffect(() => { getPost() }, []);
 
 
-
-    // this is working, creates a comment for the respective post
     const [comment, setComment] = useState({
         content: "",
     })
-
+    
+    // this is the post that we want to add the comment to
     const commentURL = `http://localhost:4000/comments/${props.match.params.userid}/${props.match.params.postid}`
-
+    
     const createComment = async (comment) => {
         await fetch(commentURL, {
             method: "POST",
@@ -41,11 +40,13 @@ const CommentsPage = (props) => {
         })
     }
 
+    // set new state of 'comment' based on input from form
     const handleChange = (event) => {
         setComment({ ...comment, [event.target.name]: event.target.value })
         console.log(props)
     }
-
+    
+    // using the updated state, create the comment
     const handleSubmit = (event) => {
         event.preventDefault()
 

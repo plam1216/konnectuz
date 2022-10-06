@@ -2,13 +2,10 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Header from '../components/Header.js'
 
-// ###############
+//////////////////////////
 // '/login' route
-// ###############
-
-// ###########################
-// TEST AFTER BACKEND IS SETUP
-// ###########################
+// Checks if user is valid
+//////////////////////////
 
 const LogInPage = (props) => {
   localStorage.clear()
@@ -37,10 +34,12 @@ const LogInPage = (props) => {
     password: ""
   })
 
+  // update login to what was inputted from the form
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value })
   }
 
+  // create the session if the user is valid
   const handleSubmit = async (event) => {
     event.preventDefault();
     await getSession(login);
