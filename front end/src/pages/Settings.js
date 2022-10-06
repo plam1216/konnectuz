@@ -8,11 +8,11 @@ function Settings(props) {
 
     const URL = `http://localhost:4000/user/${current._id}`
     async function deleteUser() {
-        await fetch(URL,{method: 'DELETE'})
+        await fetch(URL, { method: 'DELETE' })
     }
-        function confirmDelete() {
-                if(window.confirm('are you sure you want to delete your account')) {handleSubmit()}
-        }
+    function confirmDelete() {
+        if (window.confirm('are you sure you want to delete your account')) { handleSubmit() }
+    }
 
     const handleSubmit = () => {
         localStorage.clear();
@@ -22,9 +22,18 @@ function Settings(props) {
     return (
         <div className="settings">
             <Header />
-            <button onClick={confirmDelete}>Delete Account</button>
-            
-          
+            < div className="delete-account">
+                <div className="row justify-content-md-center">
+                    <div className="col col-lg-5 create-post-form">
+                        <h2 style={{marginBottom: 20, borderBottom: '2px solid black'}}> Delete Account</h2>
+                        <img className="pfp" src={current.image} alt=""/>
+                        <p style={{display: "inline-block", fontSize: "1.2rem"}}><strong>id: {current._id}</strong></p> 
+                        <br/>
+                        <button onClick={confirmDelete} style={{textAlign: 'center'}}>Delete</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }

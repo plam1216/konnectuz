@@ -20,7 +20,11 @@ function Header() {
                     </Link>
                     <ul className="ms-auto text-link">
                         <li>
-                            {/* needs to link to /user/:id */}
+                            <Link to={`/`} className="nav-link navbar-brand">
+                                <div>Feed</div>
+                            </Link>
+                        </li>
+                        <li>
                             <Link to={`/user/${current._id}`} className="nav-link navbar-brand">
                                 <div>My Posts</div>
                             </Link>
@@ -37,7 +41,7 @@ function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className ="logout nav-link navbar-brand" onClick={ handleLogout }>
+                            <Link to="/" className="logout nav-link navbar-brand" onClick={handleLogout}>
                                 <div>Log Out</div>
                             </Link>
                         </li>
@@ -53,6 +57,11 @@ function Header() {
                         <img src="https://i.imgur.com/QCHhrSB.png" alt="KonnectuZ logo" className="logo" />
                     </Link>
                     <ul className="ms-auto text-link">
+                        <li>
+                            <Link to={`/`} className="nav-link navbar-brand">
+                                <div>Feed</div>
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/about" className="about nav-link navbar-brand">
                                 <div>About uZ</div>
