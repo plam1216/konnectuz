@@ -83,18 +83,20 @@ li {
 }
 
 .ind-post {
-    border: 3px solid rgba(73, 69, 69);
+    border: 2px solid rgba(73, 69, 69);
     margin: 20px;
+    border-radius: 6px;
 }
 
 .user-info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     text-align: center;
     background-color: var(--aqua-background-color);
     height: 50px;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .user-info>h5 {
@@ -105,6 +107,7 @@ li {
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    margin-right: 10px;
 }
 
 .post-content {
