@@ -8,8 +8,10 @@ function Header() {
             await fetch(URL, {
                 method: "DELETE"
             });
+            window.location.reload();
             localStorage.clear();
         }
+
         return (
             <nav className="navbar" style={{ padding: 0 }}>
                 <div className="container-fluid" style={{ display: "flex" }}>
@@ -19,7 +21,7 @@ function Header() {
                     <ul className="ms-auto text-link">
                         <li>
                             {/* needs to link to /user/:id */}
-                            <Link to="/user/" className="nav-link navbar-brand">
+                            <Link to={`/user/${current._id}`} className="nav-link navbar-brand">
                                 <div>My Posts</div>
                             </Link>
                         </li>
@@ -35,7 +37,7 @@ function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" onClick={handleLogout}>
+                            <Link to="/feed" className ="logout nav-link navbar-brand" onClick={ handleLogout }>
                                 <div>Log Out</div>
                             </Link>
                         </li>
@@ -52,20 +54,18 @@ function Header() {
                     </Link>
                     <ul className="ms-auto text-link">
                         <li>
-
-                            <Link to="/user/" className="nav-link navbar-brand">
-                                <div>Your Page</div>
-                            </Link>
-                        </li>
-                        <li>
-
                             <Link to="/about" className="about nav-link navbar-brand">
                                 <div>About uZ</div>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/settings" className="settings nav-link navbar-brand">
-                                <div>Settings</div>
+                            <Link to="/login" className="login nav-link navbar-brand">
+                                <div>Log In</div>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/signup" className="signup nav-link navbar-brand">
+                                <div>Sign Up</div>
                             </Link>
                         </li>
                     </ul>
