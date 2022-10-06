@@ -8,8 +8,10 @@ function Header() {
             await fetch(URL, {
                 method: "DELETE"
             });
+            window.location.reload();
             localStorage.clear();
         }
+
         return (
             <nav className="navbar" style={{ padding: 0 }}>
                 <div className="container-fluid" style={{ display: "flex" }}>
@@ -35,7 +37,7 @@ function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className ="logout nav-link navbar-brand" onClick={handleLogout}>
+                            <Link to="/feed" className ="logout nav-link navbar-brand" onClick={ handleLogout }>
                                 <div>Log Out</div>
                             </Link>
                         </li>
