@@ -47,77 +47,78 @@ const Feed = () => {
                                     </Link>
 
                                     {/* whatever user inputted to the form is shown here */}
-                                    <div key={post.content}>
-                                        <div className="post-content">
-                                            <p className="post-text" style={{ margin: 0 }}>
-                                                {post.content}
-                                            </p>
-                                            <img className="post-img" src={post.image} alt="" />
-                                        </div>
-
-                                        <div id="comments">
-                                            {/* clicking on comments leads to page of comments of that post */}
-                                            <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
-                                                <Link to={`/post/${u.id}/${post._id}`}>
-                                                    COMMENTS
-                                                </Link>
-                                            </h5>
-
-                                            {/* map through each post's 'comments' array */}
-                                            {post.comments.map((comment) => {
-                                                //date in ms at which comment was made
-                                                let commentDate = new Date(comment.createdAt)
-                                                //date is now date is seconds
-                                                commentDate /= 1000
-                                                //current time in seconds
-                                                let currentDate = Date.now() / 1000
-                                                //time in minutes since post
-                                                const timeSincePost = Math.floor((currentDate - commentDate) / 60)
-                                                //var that holds time since post after condition
-                                                let dateSinceComment
-                                                if (timeSincePost > 60) {
-                                                    dateSinceComment = `${Math.floor(timeSincePost / 60)} hrs ago`
-                                                    return (
-                                                        <div className="comment-container">
-                                                            <div className="comment" key={comment.content}>
-                                                                {comment.content}
-                                                            </div>
-                                                            <div className="createdAt">
-                                                                {dateSinceComment}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                                if (timeSincePost > 1 && timeSincePost <= 60) {
-                                                    dateSinceComment = `${timeSincePost} minutes ago`
-                                                    return (
-                                                        <div className="comment-container">
-                                                            <div className="comment" key={comment.content}>
-                                                                {comment.content}
-                                                            </div>
-                                                            <div className="createdAt">
-                                                                {dateSinceComment}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                                if (timeSincePost < 1) {
-                                                    dateSinceComment = `<1 min ago`
-                                                    return (
-                                                        <div className="comment-container">
-                                                            <div className="comment" key={comment.content}>
-                                                                {comment.content}
-                                                            </div>
-                                                            <div className="createdAt">
-                                                                {dateSinceComment}
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                }
-                                            }
-                                            )}
-                                        </div>
+                                    {/* <div key={post.content}> */}
+                                    <div className="post-content">
+                                        <p className="post-text" style={{ margin: 0 }}>
+                                            {post.content}
+                                        </p>
+                                        <img className="post-img" src={post.image} alt="" />
                                     </div>
+                                    <div id="comments">
+                                        {/* clicking on comments leads to page of comments of that post */}
+                                        <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
+                                            <Link to={`/post/${u.id}/${post._id}`}>
+                                                COMMENTS
+                                            </Link>
+                                        </h5>
+
+
+                                        {/* map through each post's 'comments' array */}
+                                        {post.comments.map((comment) => {
+                                            //date in ms at which comment was made
+                                            let commentDate = new Date(comment.createdAt)
+                                            //date is now date is seconds
+                                            commentDate /= 1000
+                                            //current time in seconds
+                                            let currentDate = Date.now() / 1000
+                                            //time in minutes since post
+                                            const timeSincePost = Math.floor((currentDate - commentDate) / 60)
+                                            //var that holds time since post after condition
+                                            let dateSinceComment
+                                            if (timeSincePost > 60) {
+                                                dateSinceComment = `${Math.floor(timeSincePost / 60)} hrs`
+                                                return (
+                                                    <div className="comment-container">
+                                                        <div className="comment" key={comment.content}>
+                                                            {comment.content}
+                                                        </div>
+                                                        <div className="createdAt">
+                                                            {dateSinceComment}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                            if (timeSincePost > 1 && timeSincePost <= 60) {
+                                                dateSinceComment = `${timeSincePost} minutes`
+                                                return (
+                                                    <div className="comment-container">
+                                                        <div className="comment" key={comment.content}>
+                                                            {comment.content}
+                                                        </div>
+                                                        <div className="createdAt">
+                                                            {dateSinceComment}
+
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                            if (timeSincePost < 1) {
+                                                dateSinceComment = `<1 min`
+                                                return (
+                                                    <div className="comment-container">
+                                                        <div className="comment" key={comment.content}>
+                                                            {comment.content}
+                                                        </div>
+                                                        <div className="createdAt">
+                                                            {dateSinceComment}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                        }
+                                        )}
+                                    </div>
+                                    {/* </div> */}
                                 </div>
                             )
                         })}

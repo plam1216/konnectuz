@@ -90,7 +90,6 @@ li {
 .user-info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     background-color: var(--aqua-background-color);
     height: 50px;
@@ -109,13 +108,16 @@ li {
 
 .post-content {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+
 }
 
 .post-text {
     text-align: start;
-    padding: 10px 50px 10px 50px;
+    padding: 5px 50px 5px 50px;
 }
 
 .form-control {
@@ -141,6 +143,10 @@ li {
     background-color: rgba(73, 69, 69, 0.1);
     border-top: 2px solid black;
     margin: 0;
+}
+
+#comment-header>a:hover {
+    color: var(--aqua-background-color);
 }
 
 .comment-container {
