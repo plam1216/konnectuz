@@ -43,7 +43,7 @@ function About() {
         <div className="kyler">
             <h1>Kyler Marquis</h1>
             <img src="https://i.imgur.com/eQOHF9N.png"></img>
-            <p>filler text</p>
+            <p>Kyler Marquis is a former collegiate baseball player and psychology major. Upon graduation from college, his passion for technology grew and led him down the path of becoming a software engineer</p>
             <a className="konnectwith" href="https://www.linkedin.com/in/kylermarquis/">Konnect with Kyler</a>
         </div>
         </div>
