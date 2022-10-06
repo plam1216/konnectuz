@@ -37,7 +37,7 @@ const UserPage = (props) => {
     let loaded = () => {
         let allPosts = 
                 <div className="post" key={user.id}>
-                  <img>{user.image}</img>
+                  <img src={user.image} alt=""></img>
                     <h1>{user.username}</h1>
                     {user.posts.map((post) => {
                         return (
