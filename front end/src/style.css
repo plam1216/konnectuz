@@ -87,10 +87,12 @@ li {
 }
 
 .ind-post {
+
     border: 3px solid rgba(73, 69, 69);
     border-radius: 1%;
     border: 3px solid black;
     margin: 20px;
+    border-radius: 6px;
 }
 
 .user-info {
@@ -100,6 +102,7 @@ li {
     background-color: var(--aqua-background-color);
     height: 50px;
     padding: 10px;
+
     padding-right: 50px;
     border-radius: 1%;
 }
@@ -194,4 +197,44 @@ li {
 .delete-account {
     text-align: center;
     margin-top: 250px;
+}
+
+.post-header {
+    position: relative;
+}
+
+.buttons {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin: 5px 5px 0 0;
+}
+
+.edit {
+    margin: 0 10px;
+    padding: 5px;
+}
+.delete {
+    margin: 0 10px;
+    padding: 5px;
+}
+
+.edit:hover {
+    cursor: pointer;
+    margin: 0 10px;
+    background-color: var(--pink-background-color);
+    border-radius: 4px;
+}
+.delete:hover {
+    cursor: pointer;
+    margin: 0 10px;
+    background-color: var(--pink-background-color);
+    border-radius: 4px;
+}
+
+.ind-post:hover > div.post-header > div.buttons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin: 5px 5px 0 0;
 }

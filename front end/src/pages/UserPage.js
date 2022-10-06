@@ -10,10 +10,22 @@ import { Link } from 'react-router-dom';
 /////////////////////////////////////////
 
 const UserPage = (props) => {
+    let editAndDelete = "";
+    let createPostDiv = "";
     // check to see if the person's id who logged in matches the 
     if (localStorage.getItem("currentUser")) {
         let currentUser = JSON.parse(localStorage.getItem("currentUser"))
         if (currentUser._id === props.match.params.userid) {
+            editAndDelete =
+                <div className='buttons'>
+                    <div className='edit'>
+                        <i class="bi bi-pencil-square"></i>
+                    </div>
+                    <div className='delete'>
+                        <i class="bi bi-trash"></i>
+                    </div>
+                </div>
+                createPostDiv = <CreatePost getUser={getUser} />
             console.log("YOU ARE THE USER!!!!!")
         }
     }
@@ -22,7 +34,7 @@ const UserPage = (props) => {
 
     // fetch data for current logged in user
     const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
-    const getUser = async () => {
+    async function getUser() {
         const response = await fetch(URL);
         const data = await response.json();
         // both data and user is showing in console
@@ -40,10 +52,13 @@ const UserPage = (props) => {
                     {user.posts.map((post) => {
                         return (
                             <div className="ind-post" key={user.id}>
+                                 <div className='post-header'>
+                                {editAndDelete}
                                 <div className="user-info">
                                     <img className="pfp" src={user.pfp} alt=""></img>
                                     <h5 style={{ fontWeight: 700 }}>{user.username}</h5>
                                     <div></div>
+                                </div>
                                 </div>
                                 <div className="post-content" key={post.content}>
                                     <p className="post-text" style={{ margin: 0 }}>
@@ -81,7 +96,7 @@ const UserPage = (props) => {
         return (
             <div>
                 <Header />
-                <CreatePost getUser={getUser} />
+                {createPostDiv}
                 {allPosts}
             </div>
         )
@@ -91,7 +106,7 @@ const UserPage = (props) => {
             <div>
                 <h1>Loading...</h1>
                 <Header />
-                <CreatePost getUser={getUser} />
+                {createPostDiv}
             </div>
         )
     }
