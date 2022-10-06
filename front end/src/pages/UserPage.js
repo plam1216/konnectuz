@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 /////////////////////////////////////////
 
 const UserPage = (props) => {
+    // check to see if the person's id who logged in matches the 
     if (localStorage.getItem("currentUser")) {
         let currentUser = JSON.parse(localStorage.getItem("currentUser"))
         if (currentUser._id === props.match.params.userid) {
@@ -18,6 +19,7 @@ const UserPage = (props) => {
 
     const [user, setUser] = useState(null);
 
+    // fetch data for current logged in user
     const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
     const getUser = async () => {
         const repsonse = await fetch(URL);
@@ -38,15 +40,15 @@ const UserPage = (props) => {
                         return (
                             <div className="ind-post" key={user.id}>
                                 <div className="user-info">
-                                    <img src={user.image} alt=""></img>
+                                    <img className="pfp" src={user.pfp} alt=""></img>
                                     <h5 style={{ fontWeight: 700 }}>{user.username}</h5>
                                     <div></div>
                                 </div>
-                                <div className="postContent" key={post.content}>
-                                    <p id="post-text" style={{ margin: 0 }}>
+                                <div className="post-content" key={post.content}>
+                                    <p className="post-text" style={{ margin: 0 }}>
                                         {post.content}
                                     </p>
-                                    <img id="post-img" src={post.image} alt="" />
+                                    <img className="post-img" src={post.image} alt="" />
 
                                     <div id="comments">
                                         <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
@@ -71,8 +73,8 @@ const UserPage = (props) => {
                                     </div>
                                 </div>
                             </div>
-                                )
-                        })}
+                        )
+                    })}
                 </div>
             </div>
         return (

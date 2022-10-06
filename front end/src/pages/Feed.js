@@ -50,10 +50,10 @@ const Feed = () => {
                                     {/* whatever user inputted to the form is shown here */}
                                     <div key={post.content}>
                                         <div className="post-content">
-                                            <p id="post-text" style={{ margin: 0 }}>
+                                            <p className="post-text" style={{ margin: 0 }}>
                                                 {post.content}
                                             </p>
-                                            <img id="post-img" src={post.image} alt="" />
+                                            <img className="post-img" src={post.image} alt="" />
                                         </div>
 
                                         <div id="comments">

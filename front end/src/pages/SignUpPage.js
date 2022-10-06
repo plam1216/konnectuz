@@ -41,6 +41,7 @@ const SignUpPage = (props) => {
       body: JSON.stringify(formData)
     })
     getUsers()
+
   }
 
   useEffect(() => {
@@ -67,9 +68,6 @@ const SignUpPage = (props) => {
     // if 'taken' is 'undefined' createUser
     if (taken === undefined) {
       createUser(signUp)
-      console.log('created user', signUp)
-      console.log('everybody', users)
-
       // reset signUp
       setSignUp({
         username: "",
@@ -78,8 +76,8 @@ const SignUpPage = (props) => {
         image: ""
       })
 
-      // redirect to '/feed'
-      history.push("/feed")
+      // redirect to '/login'
+      history.push("/login")
 
     }
     // username does exist

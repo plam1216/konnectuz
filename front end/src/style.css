@@ -1,5 +1,4 @@
 :root {
-    /* --pink-background-color: rgba(255, 142, 198, 255); */
     --pink-background-color: rgb(245, 185, 213);
     --aqua-background-color: #74fbea;
     --main-font: 'Roboto', sans-serif;
@@ -114,7 +113,7 @@ li {
     padding-bottom: 10px;
 }
 
-#post-text {
+.post-text {
     text-align: start;
     padding: 10px 50px 10px 50px;
 }
@@ -133,7 +132,7 @@ li {
     margin: 0;
 }
 
-#post-img {
+.post-img {
     height: 250px;
     max-width: 80%;
 }
@@ -152,4 +151,19 @@ li {
 
 #comments {
     text-align: center;
+}
+
+.logged-in-pfp {
+    height: 50px;
+    max-width: 50px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.create-post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding-right: 30px;
 }
