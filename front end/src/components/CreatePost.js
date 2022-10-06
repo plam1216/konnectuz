@@ -16,7 +16,7 @@ const CreatePost = ({ getUser }) => {
     })
 
     // get data for a User's post
-    const postURL = "http://localhost:4000/post/633c9ca25917c13ac081b5cf"
+    const postURL = `http://localhost:4000/post/${current._id}`
 
     const createPost = async (post) => {
         await fetch(postURL, {

@@ -16,8 +16,6 @@ const LogInPage = (props) => {
   // used to redirect
   let history = useHistory()
 
-  const [session, setSession] = useState(null)
-
   // where User data is stored
   const URL = 'http://localhost:4000/sessions/'
 
