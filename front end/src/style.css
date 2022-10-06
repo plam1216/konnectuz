@@ -173,3 +173,82 @@ li {
     text-align: center;
     padding-right: 30px;
 }
+
+.create-comment {
+    text-align: center;
+}
+
+.delete-account {
+    text-align: center;
+    margin-top: 250px;
+}
+
+.post-header {
+    position: relative;
+}
+
+.buttons {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin: 5px 5px 0 0;
+}
+
+.edit {
+    margin: 0 10px;
+    padding: 5px;
+}
+.delete {
+    margin: 0 10px;
+    padding: 5px;
+}
+
+.edit:hover {
+    cursor: pointer;
+    margin: 0 10px;
+    background-color: var(--pink-background-color);
+    border-radius: 4px;
+}
+.delete:hover {
+    cursor: pointer;
+    margin: 0 10px;
+    background-color: var(--pink-background-color);
+    border-radius: 4px;
+}
+
+.ind-post:hover > div.post-header > div.buttons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    margin: 5px 5px 0 0;
+}
+
+.james, .james-name, .james-img {
+    display: flex;
+    justify-content: center;
+}
+
+.james-about-info {
+    text-align: center;
+    font-size: large;
+}
+
+.james-about-links > a {
+    color: blue;
+}
+
+.james-about-links > a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+.james {
+    background-color: rgba(255,255,255,0.6);
+    margin: 50px;
+    padding: 10px 0;
+}
+
+.james-img > img {
+    width: 30%;
+}
+
