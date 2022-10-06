@@ -48,7 +48,7 @@ const LogInPage = (props) => {
     if (current === null) {
       alert("Username and password do not match!")
     } else {
-      history.push("/feed");
+      history.push("/");
     }
   }
 
