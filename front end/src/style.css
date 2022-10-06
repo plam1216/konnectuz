@@ -8,10 +8,6 @@
 html,
 body {
     height: 100%;
-    background-image: url('https://imgur.com/r5qpise.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: auto;
 }
 
 nav {
@@ -87,25 +83,18 @@ li {
 }
 
 .ind-post {
-
     border: 3px solid rgba(73, 69, 69);
-    border-radius: 1%;
-    border: 3px solid black;
     margin: 20px;
-    border-radius: 6px;
 }
 
 .user-info {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     text-align: center;
     background-color: var(--aqua-background-color);
     height: 50px;
     padding: 10px;
-
-    padding-right: 50px;
-    border-radius: 1%;
 }
 
 .user-info>h5 {
@@ -113,17 +102,15 @@ li {
 }
 
 .pfp {
-    height: 35px;
-    width: 35px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
-    margin-right: 10px;
 }
 
 .post-content {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: white;
 }
 
 .post-text {
@@ -139,7 +126,6 @@ li {
     margin-top: 20px;
     border: 2px solid rgba(73, 69, 69, 0.3);
     padding: 20px;
-    background-color: white;
 }
 
 .create-post-labels {
@@ -151,25 +137,20 @@ li {
     max-width: 80%;
 }
 
-#comments {
-    text-align: center;
-}
-
 #comment-header {
-    background-color: rgb(175, 166, 166);
-    background-color: var(--pink-background-color);
-    border-top: 4px solid black;
+    background-color: rgba(73, 69, 69, 0.1);
+    border-top: 2px solid black;
     margin: 0;
 }
 
 .comment-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: center;
-    background-color: white;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 5px 75px 5px 75px;
+}
+
+#comments {
+    text-align: center;
 }
 
 .logged-in-pfp {
@@ -185,53 +166,4 @@ li {
     justify-content: space-between;
     text-align: center;
     padding-right: 30px;
-}
-
-.create-comment {
-    text-align: center;
-}
-
-.delete-account {
-    text-align: center;
-    margin-top: 250px;
-}
-
-.post-header {
-    position: relative;
-}
-
-.buttons {
-    display: none;
-    position: absolute;
-    right: 0;
-    margin: 5px 5px 0 0;
-}
-
-.edit {
-    margin: 0 10px;
-    padding: 5px;
-}
-.delete {
-    margin: 0 10px;
-    padding: 5px;
-}
-
-.edit:hover {
-    cursor: pointer;
-    margin: 0 10px;
-    background-color: var(--pink-background-color);
-    border-radius: 4px;
-}
-.delete:hover {
-    cursor: pointer;
-    margin: 0 10px;
-    background-color: var(--pink-background-color);
-    border-radius: 4px;
-}
-
-.ind-post:hover > div.post-header > div.buttons {
-    display: flex;
-    position: absolute;
-    right: 0;
-    margin: 5px 5px 0 0;
 }

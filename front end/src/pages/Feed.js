@@ -13,7 +13,7 @@ const Feed = () => {
     const [user, setUser] = useState(null);
 
     // get all user data from MongoDB
-    const URL = "http://localhost:4000/user/";
+    const URL = "https://konnectuzbackend.herokuapp.com/user/";
     const getUser = async () => {
         const response = await fetch(URL);
         const data = await response.json();

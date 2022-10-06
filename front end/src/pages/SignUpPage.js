@@ -20,7 +20,7 @@ const SignUpPage = (props) => {
   })
 
   // where User data is stored
-  const URL = 'http://localhost:4000/user/'
+  const URL = 'https://konnectuzbackend.herokuapp.com/user/'
 
   // grab User data from MongoDB
   const getUsers = async () => {

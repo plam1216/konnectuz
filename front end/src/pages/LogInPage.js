@@ -14,7 +14,7 @@ const LogInPage = (props) => {
   let history = useHistory()
 
   // where User data is stored
-  const URL = 'http://localhost:4000/sessions/'
+  const URL = 'https://konnectuzbackend.herokuapp.com/sessions/'
 
   // grab User data from MongoDB
   const getSession = async (formData) => {

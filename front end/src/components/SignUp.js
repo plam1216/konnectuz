@@ -11,7 +11,7 @@ const SignUpForm = (props) => {
     const [user, setUser] = useState(null)
 
     // where User data is stored
-    const URL = 'http://localhost:4000/user/'
+    const URL = 'https://konnectuzbackend.herokuapp.com/user/'
 
     // grab and display data from MongoDB
     const getUsers = async () => {
