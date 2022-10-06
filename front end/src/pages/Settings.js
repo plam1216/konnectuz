@@ -19,6 +19,7 @@ function Settings(props) {
     return (
         <div className="settings">
             <Header />
+        
             <button onClick={handleSubmit}>Delete Account</button>
             
           
