@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Header from '../components/Header.js'
 
@@ -11,26 +11,26 @@ import Header from '../components/Header.js'
 // ###########################
 
 const LogInPage = (props) => {
+  localStorage.clear()
   // useHistory is useNavigate in React 6
   // used to redirect
   let history = useHistory()
 
-  const [users, setUsers] = useState(null)
-
   // where User data is stored
-  const URL = 'http://localhost:4000/user/'
+  const URL = 'http://localhost:4000/sessions/'
 
   // grab User data from MongoDB
-  const getUsers = async () => {
-    const response = await fetch(URL)
+  const getSession = async (formData) => {
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json"
+      },
+      body: JSON.stringify(formData)
+    })
     const data = await response.json()
-
-    setUsers(data)
+    localStorage.setItem("currentUser", JSON.stringify(data))
   }
-
-  useEffect(() => {
-    getUsers()
-  }, [])
 
   const [login, setLogin] = useState({
     username: "",
@@ -41,23 +41,14 @@ const LogInPage = (props) => {
     setLogin({ ...login, [event.target.name]: event.target.value })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    // check for user in MongoDB with the same username as which was submitted
-    console.log('inputted login:', login)
-    const validUser = users.find((user) => user.username === login.username)
-    console.log('validUser found: ', validUser)
-    // if username exists in MongoDB check if password exists, else alert username does not exist
-    // if password exists, redirect to 'User' page, else alert password was incorrect
-    if (validUser) {
-      if (validUser.password === login.password) {
-        // redirect to '/feed' if valid password
-        history.push("/feed")
-      } else {
-        alert('password incorrect')
-      }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await getSession(login);
+    let current = JSON.parse(localStorage.getItem("currentUser"));
+    if (current === null) {
+      alert("Username and password do not match!")
     } else {
-      alert('username does not exist')
+      history.push("/feed");
     }
   }
 
@@ -83,7 +74,7 @@ const LogInPage = (props) => {
                 <div>
                   <label className="form-label">Password</label>
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     value={login.password}
                     onChange={handleChange}

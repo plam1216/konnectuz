@@ -14,6 +14,13 @@ import { useEffect, useState } from 'react';
 
 const UserPage = (props) => {
 
+    if (localStorage.getItem("currentUser")) {
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"))
+        if (currentUser._id === props.match.params.userid) {
+            console.log("YOU ARE THE USER!!!!!")
+        }
+    }
+
     const [ user, setUser ] = useState(null);
 
     const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
