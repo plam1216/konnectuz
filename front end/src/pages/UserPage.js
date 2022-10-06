@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import CreatePost from '../components/CreatePost';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 /////////////////////////////////////////
 // '/user/:id' route
@@ -22,8 +23,8 @@ const UserPage = (props) => {
     // fetch data for current logged in user
     const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
     const getUser = async () => {
-        const repsonse = await fetch(URL);
-        const data = await repsonse.json();
+        const response = await fetch(URL);
+        const data = await response.json();
         // both data and user is showing in console
         setUser(data);
     }
@@ -52,9 +53,9 @@ const UserPage = (props) => {
 
                                     <div id="comments">
                                         <h5 id="comment-header" style={{ fontWeight: 700, display: 'flex', justifyContent: 'center', padding: 5 }}>
-                                            {/* <Link to={`/post/${user.id}/${post._id}`}> */}
+                                            <Link to={`/post/${user.id}/${post._id}`}>
                                             COMMENTS
-                                            {/* </Link> */}
+                                            </Link>
                                         </h5>
 
                                         {post.comments.map((comment) => {

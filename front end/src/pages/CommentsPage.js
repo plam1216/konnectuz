@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import Header from '../components/Header'
 
 /////////////////////////
@@ -6,13 +6,30 @@ import Header from '../components/Header'
 // CREATE comment on users' post
 /////////////////////////
 
-const CommentsPage = () => {
-    // use localStorage to fix URL
+const CommentsPage = (props) => {
+    // const [post, setPost] = useState(null);
+
+    // // fetch data for current logged in user
+    // const URL = `http://localhost:4000/post/${props.match.params.userid}/${props.match.params.postid}`;
+    // const getPost = async () => {
+    //     const response = await fetch(URL);
+    //     const data = await response.json();
+    //     // both data and user is showing in console
+    //     setPost(data);
+    //     // console.log('post', post)
+    //     // console.log('data', data)
+    // }
+
+    // useEffect(() => { getPost() }, []);
+ 
+
+
+    // this is working, creates a comment for the respective post
     const [comment, setComment] = useState({
         content: "",
     })
 
-    const commentURL = "http://localhost:4000/comments/633c758a546c9ecd181ba181/633c78af74d53375779d3fda"
+    const commentURL = `http://localhost:4000/comments/${props.match.params.userid}/${props.match.params.postid}`
 
     const createComment = async (comment) => {
         await fetch(commentURL, {
@@ -24,9 +41,7 @@ const CommentsPage = () => {
         })
     }
 
-
     const handleChange = (event) => {
-        console.log(event.target.value)
         setComment({ ...comment, [event.target.name]: event.target.value })
     }
 
@@ -34,7 +49,6 @@ const CommentsPage = () => {
         event.preventDefault()
 
         createComment(comment)
-
         setComment({
             content: ""
         })
@@ -42,7 +56,7 @@ const CommentsPage = () => {
     return (
         <div>
             <Header />
-            Post on left side, comments and form on right side?
+            {/* {post.content } */}
             <h4>Comment</h4>
             <form onSubmit={handleSubmit}>
                 <input
