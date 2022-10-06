@@ -3,7 +3,7 @@ function Header() {
     let current = JSON.parse(localStorage.getItem("currentUser"));
 
     if (current) {
-        let URL = `http://localhost:4000/sessions/${current._id}`;
+        let URL = `https://konnectuzbackend.herokuapp.com/sessions/${current._id}`;
         async function handleLogout() {
             await fetch(URL, {
                 method: "DELETE"

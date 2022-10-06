@@ -26,14 +26,13 @@ const UserPage = (props) => {
                     </div>
                 </div>
                 createPostDiv = <CreatePost getUser={getUser} />
-            console.log("YOU ARE THE USER!!!!!")
         }
     }
 
     const [user, setUser] = useState(null);
 
     // fetch data for current logged in user
-    const URL = `http://localhost:4000/user/${props.match.params.userid}/`;
+    const URL = `https://konnectuzbackend.herokuapp.com/user/${props.match.params.userid}/`;
     async function getUser() {
         const response = await fetch(URL);
         const data = await response.json();
@@ -74,19 +73,60 @@ const UserPage = (props) => {
                                         </Link>
                                     </h5>
 
-                                    {post.comments.map((comment) => {
-                                        return (
-                                            <div className="comment-container">
-                                                <div className="comment" key={comment.content}>
-                                                    {comment.content}
-                                                </div>
-                                                <div className="createdAt">
 
-                                                    {comment.createdAt}
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
+                                        {post.comments.map((comment) => {
+                                                //date in ms at which comment was made
+                                                let commentDate = new Date(comment.createdAt)
+                                                //date is now date is seconds
+                                                commentDate /= 1000
+                                                //current time in seconds
+                                                let currentDate = Date.now() / 1000
+                                                //time in minutes since post
+                                                const timeSincePost = Math.floor((currentDate - commentDate) / 60)
+                                                //var that holds time since post after condition
+                                                let dateSinceComment
+                                                if (timeSincePost > 60) {
+                                                    dateSinceComment = `${Math.floor(timeSincePost / 60)} hrs ago`
+                                                    return (
+                                                        <div className="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+                                                                {dateSinceComment}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                                if (timeSincePost > 1 && timeSincePost <= 60) {
+                                                    dateSinceComment = `${timeSincePost} minutes ago`
+                                                    return (
+                                                        <div className="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+                                                                {dateSinceComment}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                                if (timeSincePost < 1) {
+                                                    dateSinceComment = `<1 min ago`
+                                                    return (
+                                                        <div className="comment-container">
+                                                            <div className="comment" key={comment.content}>
+                                                                {comment.content}
+                                                            </div>
+                                                            <div className="createdAt">
+                                                                {dateSinceComment}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                        })}
+                                    </div>
+
                                 </div>
                             </div>
                         )

@@ -13,7 +13,7 @@ const Feed = () => {
     const [user, setUser] = useState(null);
 
     // get all user data from MongoDB
-    const URL = "http://localhost:4000/user/";
+    const URL = "https://konnectuzbackend.herokuapp.com/user/";
     const getUser = async () => {
         const response = await fetch(URL);
         const data = await response.json();
@@ -62,6 +62,7 @@ const Feed = () => {
                                             </Link>
                                         </h5>
 
+
                                         {/* map through each post's 'comments' array */}
                                         {post.comments.map((comment) => {
                                             //date in ms at which comment was made
@@ -96,6 +97,7 @@ const Feed = () => {
                                                         </div>
                                                         <div className="createdAt">
                                                             {dateSinceComment}
+
                                                         </div>
                                                     </div>
                                                 )
