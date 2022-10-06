@@ -6,7 +6,7 @@ function Settings(props) {
     let current = JSON.parse(localStorage.getItem("currentUser"))
     let history = useHistory();
 
-    const URL = `http://localhost:4000/user/${current._id}`
+    const URL = `http://localhost:4000/user/`
     async function deleteUser() {
         await fetch(URL,{method: 'DELETE'})
     }
