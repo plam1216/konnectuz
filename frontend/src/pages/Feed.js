@@ -76,7 +76,7 @@ const Feed = () => {
                                             //var that holds time since post after condition
                                             let dateSinceComment
                                             if (timeSincePost > 60) {
-                                                dateSinceComment = `${Math.floor(timeSincePost / 60)} hrs`
+                                                dateSinceComment = `${Math.floor(timeSincePost / 60)} hrs ago`
                                                 return (
                                                     <div className="comment-container">
                                                         <div className="comment" key={comment.content}>
@@ -89,7 +89,7 @@ const Feed = () => {
                                                 )
                                             }
                                             if (timeSincePost > 1 && timeSincePost <= 60) {
-                                                dateSinceComment = `${timeSincePost} minutes`
+                                                dateSinceComment = `${timeSincePost} minutes ago`
                                                 return (
                                                     <div className="comment-container">
                                                         <div className="comment" key={comment.content}>
@@ -103,7 +103,7 @@ const Feed = () => {
                                                 )
                                             }
                                             if (timeSincePost < 1) {
-                                                dateSinceComment = `<1 min`
+                                                dateSinceComment = `<1 min ago`
                                                 return (
                                                     <div className="comment-container">
                                                         <div className="comment" key={comment.content}>
