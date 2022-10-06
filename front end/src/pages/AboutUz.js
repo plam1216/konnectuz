@@ -23,10 +23,22 @@ function About() {
             <a className="konnectwith" href="https://www.linkedin.com/in/plam1216/">Konnect with Peter</a>
         </div>
         <div className="james">
-            <h1>James Ocaña</h1>
-            <img src="https://i.imgur.com/cnU0ThQ.jpg"></img>
-            <p>filler text</p>
-            <a className="konnectwith" href="https://www.linkedin.com/in/james-ocana/">Konnect with James</a>
+            <div className="james-content">
+                <div className="james-name">
+                    <h1>James Ocaña</h1>
+                </div>
+                <div className="james-img">
+                    <img src="https://i.imgur.com/cnU0ThQ.jpg"></img>
+                </div>
+                <div className="james-about-info">
+                    Hello! Thanks for clicking on About Me. I am James Ocana. Here are the links to my GitHub and LinkedIn. <br/>
+                    Please feel free to contact me if you have any questions or inquiries! <br/>
+                    <div className="james-about-links">
+                        LinkedIn: <a className="konnectwith" href="https://www.linkedin.com/in/james-ocana/">https://www.linkedin.com/in/james-ocana/</a><br/>
+                        GitHub: <a className="konnectwith" href="https://github.com/jamesocana6">https://github.com/jamesocana6</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div className="kyler">
             <h1>Kyler Marquis</h1>

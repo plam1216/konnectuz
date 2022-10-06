@@ -232,3 +232,32 @@ li {
     right: 0;
     margin: 5px 5px 0 0;
 }
+
+.james, .james-name, .james-img {
+    display: flex;
+    justify-content: center;
+}
+
+.james-about-info {
+    text-align: center;
+    font-size: large;
+}
+
+.james-about-links > a {
+    color: blue;
+}
+
+.james-about-links > a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+.james {
+    background-color: rgba(255,255,255,0.6);
+    margin: 50px;
+    padding: 10px 0;
+}
+
+.james-img > img {
+    width: 30%;
+}
