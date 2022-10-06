@@ -1,15 +1,26 @@
 import React from "react";
 import Header from "../components/Header";
+import { useHistory } from "react-router-dom";
 
 function Settings(props) {
-        const URL = `http://localhost:4000/user`
-    async function deleteUser(id) {
-        await fetch(URL + id,{method: 'DELETE'})
+    let current = JSON.parse(localStorage.getItem("currentUser"))
+    let history = useHistory();
+
+    const URL = `http://localhost:4000/user/${current._id}`
+    async function deleteUser() {
+        await fetch(URL,{method: 'DELETE'})
     }
+    
+    const handleSubmit = () => {
+        localStorage.clear();
+        deleteUser();
+        history.push("/")
+    }
+
     return (
         <div className="settings">
             <Header />
-            <button onClick={deleteUser}>Delete Account</button>
+            <button onClick={handleSubmit}>Delete Account</button>
           
         </div>
     )
