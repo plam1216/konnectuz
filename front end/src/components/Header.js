@@ -35,7 +35,7 @@ function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" onClick={handleLogout}>
+                            <Link to="/" className ="logout nav-link navbar-brand" onClick={handleLogout}>
                                 <div>Log Out</div>
                             </Link>
                         </li>
