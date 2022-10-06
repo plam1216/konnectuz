@@ -78,8 +78,8 @@ const SignUpPage = (props) => {
         image: ""
       })
 
-      // redirect to '/'
-      history.push("/")
+      // redirect to '/feed'
+      history.push("/feed")
 
     }
     // username does exist
