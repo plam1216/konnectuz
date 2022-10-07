@@ -8,6 +8,10 @@
 html,
 body {
     height: 100%;
+    background-image: url('https://imgur.com/r5qpise.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
 }
 
 nav {
@@ -84,7 +88,7 @@ li {
 
 .ind-post {
     border: 3px solid rgba(73, 69, 69);
-    border-radius: 6px;
+    border-radius: 1%;
     margin: 20px;
 }
 
@@ -94,8 +98,8 @@ li {
     text-align: center;
     height: 50px;
     padding: 10px;
-    padding-right: 50px;
-    border-radius: 1.5%;
+    /* padding-right: 50px; */
+    /* border-radius: 1.5%; */
 }
 
 .user-info>h5 {
@@ -103,8 +107,8 @@ li {
 }
 
 .pfp {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -130,6 +134,7 @@ li {
     margin-top: 20px;
     border: 2px solid rgba(73, 69, 69, 0.3);
     padding: 20px;
+    background-color: white;
 }
 
 .create-post-labels {
@@ -157,19 +162,27 @@ li {
 
 .comment-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
+    background-color: white;
+    border-top: 2px solid black;
+    padding: 10px 20px 10px 20px;
 }
 
 #comments {
     text-align: center;
 }
 
+.comment {
+    max-width: 50%;
+}
+
 .logged-in-pfp {
-    height: 50px;
-    max-width: 50px;
+    height: 45px;
+    max-width: 45px;
     border-radius: 50%;
     display: inline-block;
+    margin-left: 10px;
 }
 
 .create-post-header {
@@ -234,24 +247,26 @@ li {
     margin: 5px 5px 0 0;
 }
 
-.james, .james-name, .james-img {
+.dev, .dev-name, .dev-img {
     display: flex;
     justify-content: center;
 }
 
-.james-about-info {
+.dev-about-info {
     text-align: center;
     font-size: large;
-    width: 800px;
+    padding: 0 20px 0 20px;
 }
 
-.james {
+.dev {
     background-color: rgba(255,255,255,0.6);
-    margin: 50px;
     padding: 10px 0;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
 }
 
-.james-img > img {
+.dev-img > img {
     width: 30%;
 }
 
@@ -262,4 +277,13 @@ li {
 
 .timestamp {
     margin-right: 10px;
+}
+
+.aboutBody {
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+    padding: 25px;
 }
