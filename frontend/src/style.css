@@ -238,6 +238,7 @@ li {
 .james-about-info {
     text-align: center;
     font-size: large;
+    width: 800px;
 }
 
 .james-about-links > a {
