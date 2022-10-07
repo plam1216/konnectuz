@@ -12,3 +12,10 @@ KonnectuZ is an open source social media app that was founded in 2022 by [Drew A
 - Netlify 
 - Heroku
 - Json
+
+# Future Enhancements Include
+- direct messaging
+- ability to delete post
+- update user profile picture and name 
+- react to post
+
