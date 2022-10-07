@@ -92,7 +92,6 @@ li {
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: var(--aqua-background-color);
     height: 50px;
     padding: 10px;
     padding-right: 50px;
@@ -192,6 +191,11 @@ li {
 
 .post-header {
     position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    background-color: var(--aqua-background-color)
 }
 
 .buttons {
@@ -256,3 +260,6 @@ li {
     text-decoration: underline;
 }
 
+.timestamp {
+    margin-right: 10px;
+}
