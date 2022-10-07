@@ -34,7 +34,7 @@ function About() {
                     <img src="https://i.imgur.com/Z2sVB9m.png"></img>
                 </div>
                 <div className="james-about-info">
-                    Hello! Thanks for clicking on About Me. I am Peter Lam. Konnect with me on <a className="konnectwith" href="https://github.com/jamesocana6" target= "_blank">GitHub</a> and <a className="konnectwith" href="https://www.linkedin.com/in/plam1216/" target= "_blank">LinkedIn</a>. <br/>
+                    Hello! Thanks for clicking on About Me. I am Peter Lam. Konnect with me on <a className="konnectwith" href="https://github.com/plam1216" target= "_blank">GitHub</a> and <a className="konnectwith" href="https://www.linkedin.com/in/plam1216/" target= "_blank">LinkedIn</a>. <br/>
                     Please feel free to contact me if you have any questions or inquiries! <br/>
                 </div>
             </div>
