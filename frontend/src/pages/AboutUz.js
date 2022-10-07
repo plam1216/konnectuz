@@ -7,7 +7,7 @@ function About() {
             <Header />
             <div className="aboutBody">
             <h1>What is Konnect uZ?</h1>
-                <p>Konnect uZ is an open source full CRUD app built using the MERN stack for our unit 3 project. Konnect uZ is a social media app that allows non users to look at the feed. When a user signs up they can interact with other user's feed post and make their own post. Konnect uZ was founded by Drew Anello, Peter Lam, dev Ocana and Kyler Marquis in October of 2022.</p>
+                <p>Konnect uZ is an open source full CRUD app built using the MERN stack for our unit 3 project. Konnect uZ is a social media app that allows non users to look at the feed. When a user signs up they can interact with other user's feed post and make their own post. Konnect uZ was founded by Drew Anello, Peter Lam, James Ocana and Kyler Marquis in October of 2022.</p>
             </div>
             <div className="creators">
         <div className="dev">
@@ -52,7 +52,7 @@ function About() {
                 </div>
             </div>
         </div>
-        <div className="dev">
+        <div className="dev" style={{marginBottom: 50}}>
             <div className="dev-content">
                 <div className="dev-name">
                     <h1>Kyler Marquis</h1>
