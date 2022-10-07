@@ -47,7 +47,7 @@ function About() {
                     <img src="https://i.imgur.com/cnU0ThQ.jpg" alt=""></img>
                 </div>
                 <div className="dev-about-info">
-                    Hello! Thanks for clicking on About Me. I am James Ocana. Konnect with me on <a className="konnectwith" href="https://github.com/devocana6" target= "_blank">GitHub</a> and <a className="konnectwith" href="https://www.linkedin.com/in/dev-ocana/" target= "_blank">LinkedIn</a>. <br/>
+                    Hello! Thanks for clicking on About Me. I am James Ocana. Konnect with me on <a className="konnectwith" href="https://github.com/devocana6" target= "_blank">GitHub</a> and <a className="konnectwith" href="https://www.linkedin.com/in/james-ocana/" target= "_blank">LinkedIn</a>. <br/>
                     Please feel free to contact me if you have any questions or inquiries! <br/>
                 </div>
             </div>
