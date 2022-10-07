@@ -62,7 +62,11 @@ li {
 #sign-up-content {
     text-align: center;
     font-family: var(--main-font);
-    margin-top: 100px;
+    background-color: white;
+    width: 60%;
+    margin: auto;
+    margin-top: 75px;
+    padding: 20px;
 }
 
 .submit-btn {
@@ -73,7 +77,11 @@ li {
 #login-content {
     text-align: center;
     font-family: var(--main-font);
-    margin-top: 100px;
+    background-color: white;
+    width: 60%;
+    margin: auto;
+    margin-top: 150px;
+    padding: 20px;
 }
 
 .form-label {
@@ -259,11 +267,12 @@ li {
 }
 
 .dev {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.7);
     padding: 10px 0;
     width: 70%;
     margin: auto;
     margin-top: 50px;
+    border-radius: 1%;
 }
 
 .dev-img > img {
@@ -286,4 +295,5 @@ li {
     margin: auto;
     margin-top: 100px;
     padding: 25px;
+    border-radius: 1%;
 }
