@@ -71,7 +71,7 @@ const CreatePost = ({ getUser }) => {
                                         type="text"
                                         name="content"
                                         placeholder="What's Happening?"
-                                        maxLength={50}
+                                        maxLength={500}
                                         value={post.content}
                                         onChange={handleChange}
                                         className="form-control"
